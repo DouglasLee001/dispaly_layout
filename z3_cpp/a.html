@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="ind_cpp.js"></script>
+</head>
+
+<body>
+    <script>
+        createModule().then(Module => {
+            const result = Module.test_solve_cpp(1000, true);
+            console.log(result);  // 输出 12
+        });
+    </script>
+</body>
+
+</html>

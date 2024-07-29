@@ -109,6 +109,8 @@ time.h
 /home/libh/emscripten/project/z3_cpp/src/sls_solver/nia_ls.h
 ./sls_solver_overall/nia_ls.h
 /home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_ls.h
+emscripten/bind.h
+-
 
 /home/libh/emscripten/project/z3_cpp/src/utils/nia_Array.h
 cstring

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "ind_cpp.html"
+  "ind_cpp.js"
   "ind_cpp.pdb"
 )
 

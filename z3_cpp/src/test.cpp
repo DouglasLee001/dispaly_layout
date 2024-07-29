@@ -6,6 +6,7 @@
 #include <time.h>
 #include "./sls_solver/nia_ls.h"
 #include "./sls_solver_overall/nia_ls.h"
+#include <emscripten/bind.h>
 #define DEBUG
 
 std::vector<int> soft_c_info;
@@ -130,10 +131,10 @@ void test_solve_cpp(int width, bool is_print = false)
     overall_solver->build_instance_new_width(width);
     if (overall_solver->local_search())
     {
-        // if (is_print)
-        //     overall_solver->print_components();
-        // else
-        //     std::cout << "sat\n";
+        if (is_print)
+            overall_solver->print_components();
+        else
+            std::cout << "sat\n";
         // overall_solver->record_soft_var_solution(soft_c_info);
         // refine_by_sls_solver(is_print);
 #ifdef DEBUG
@@ -152,11 +153,11 @@ int main()
 {
     add_sls_solvers_independent();
     add_sls_solvers_overall();
-    clock_t start = clock();
-    for (int width = 400; width < 2400; width++)
-        test_solve_cpp(width);
-    total_time = clock() - start;
-    std::cout << total_time << std::endl;
+    // clock_t start = clock();
+    // for (int width = 400; width < 2400; width++)
+    //     test_solve_cpp(width);
+    // total_time = clock() - start;
+    // std::cout << total_time << std::endl;
     // test_solve_cpp(400, true);
     // test_solve_cpp(600, true);
     // test_solve_cpp(800, true);
@@ -165,8 +166,13 @@ int main()
     // test_solve_cpp(1400, true);
     // test_solve_cpp(1600, true);
     // test_solve_cpp(1800, true);
-#ifdef DEBUG
-    std::cout << total_time << std::endl;
-    std::cout << total_time / total_check << std::endl;
-#endif
+// #ifdef DEBUG
+//     std::cout << total_time << std::endl;
+//     std::cout << total_time / total_check << std::endl;
+// #endif
+    return 0;
+}
+
+EMSCRIPTEN_BINDINGS(my_module) {
+    emscripten::function("test_solve_cpp", &test_solve_cpp);
 }

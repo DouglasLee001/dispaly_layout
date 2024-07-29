@@ -8,7 +8,6 @@ project(MyProject)
 # set(CMAKE_CXX_COMPILER g++)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "-O3 -w")
-set(CMAKE_EXECUTABLE_SUFFIX ".html") # 编译生成.html
 
 
 # 设置源文件夹
@@ -32,5 +31,9 @@ add_library(d_sources OBJECT ${D_SOURCES})
 # 创建可执行文件并链接目标文件
 add_executable(ind_cpp $<TARGET_OBJECTS:a_sources> $<TARGET_OBJECTS:b_sources> $<TARGET_OBJECTS:c_sources> $<TARGET_OBJECTS:d_sources>
 )
-
+set_target_properties(ind_cpp PROPERTIES
+    OUTPUT_NAME "ind_cpp"
+    SUFFIX ".js"
+    LINK_FLAGS "-s MODULARIZE=1 -s EXPORT_NAME=createModule -lembind"
+)
 target_link_options(ind_cpp PRIVATE --preload-file ${CMAKE_SOURCE_DIR}/sls_smtlib@/sls_smtlib)
