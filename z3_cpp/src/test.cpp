@@ -20,7 +20,7 @@ struct Component
     double h;
     int v;
 };
-
+std::vector<std::string> c_names;
 std::vector<Component> components;
 
 void add_sls_solvers_independent()
@@ -39,6 +39,7 @@ void add_sls_solvers_overall()
     overall_solver = new nia_overall::ls_solver(0, 10000, 5, true);
     overall_solver->read_from_file("/sls_smtlib/hard.smt2", soft_c_names);
     components.resize(overall_solver->component_names.size());
+    c_names = overall_solver->component_names;
 }
 
 bool sls_solve_component(nia::ls_solver *sls_solver, int w, int h, int x, int y, bool is_print = false)
@@ -192,6 +193,11 @@ std::vector<Component> getComponents(int width)
     return components;
 }
 
+std::vector<std::string> getInitialComponents()
+{
+    return c_names;
+}
+
 EMSCRIPTEN_BINDINGS(my_module)
 {
     emscripten::value_object<Component>("Component")
@@ -200,7 +206,8 @@ EMSCRIPTEN_BINDINGS(my_module)
         .field("w", &Component::w)
         .field("h", &Component::h)
         .field("v", &Component::v);
-
+    emscripten::register_vector<std::string>("vector<string>");
     emscripten::register_vector<Component>("vector<Component>");
     emscripten::function("getComponents", &getComponents);
+    emscripten::function("getInitialComponents", &getInitialComponents);
 }

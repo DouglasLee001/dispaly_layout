@@ -3,11 +3,20 @@
 
 <head>
     <meta charset="utf-8">
+    <title>Emscripten Components</title>
     <script src="ind_cpp.js"></script>
+    <script src="components.js"></script> <!-- 加载组件定义 -->
     <style>
         .component {
             position: absolute;
             border: 1px solid black;
+        }
+
+        .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
         }
 
         img {
@@ -20,32 +29,45 @@
 <body>
     <script>
         let moduleInstance = null;
-        const images = [];
-        const elementCache = {};
-
-        // 加载图片文件名列表
-        fetch('imageList.json')
-            .then(response => response.json())
-            .then(imageFiles => {
-                // 预加载所有图片
-                imageFiles.forEach((fileName, index) => {
-                    const img = new Image();
-                    img.src = `images/${fileName}`;
-                    images[index] = img;
-                });
-                // 在图片加载完成后初始化组件
-                initializeComponents(window.innerWidth);
-            });
+        const elementCache = [];  // 使用数组来缓存组件元素
 
         function initializeComponents(screenWidth) {
             if (!moduleInstance) {
                 createModule().then(Module => {
                     moduleInstance = Module;
-                    updateComponents(screenWidth);
+                    const componentNames = moduleInstance.getInitialComponents();
+                    renderComponents(componentNames);
                 });
             } else {
-                updateComponents(screenWidth);
+                const componentNames = moduleInstance.getInitialComponents();
+                renderComponents(componentNames);
             }
+        }
+
+        function renderComponents(componentNames) {
+            // 清空现有组件
+            elementCache.length = 0; // 清空缓存数组
+            for (let i = 0; i < componentNames.size(); i++) {
+                const name = componentNames.get(i);
+                let div = document.createElement('div');
+                div.id = name;
+                div.className = 'component';
+
+                const componentDefinition = componentDefinitions[name];
+                if (componentDefinition) {
+                    if (componentDefinition.type === 'text') {
+                        div.className += ' text';
+                        div.textContent = componentDefinition.content;
+                    } else if (componentDefinition.type === 'image') {
+                        const img = new Image();
+                        img.src = componentDefinition.content;
+                        div.appendChild(img);
+                    }
+                }
+                document.body.appendChild(div);
+                elementCache.push(div);  // 将组件元素添加到缓存数组
+            }
+            updateComponents(window.innerWidth);
         }
 
         function updateComponents(screenWidth) {
@@ -53,18 +75,7 @@
 
             for (let i = 0; i < components.size(); i++) {
                 const component = components.get(i);
-                let div = elementCache['component' + i];
-
-                if (!div) {
-                    // 如果组件不存在，则创建新的组件并缓存
-                    div = document.createElement('div');
-                    div.id = 'component' + i;
-                    div.className = 'component';
-                    const img = images[0].cloneNode(); // 使用 cloneNode 防止图片被多次添加
-                    div.appendChild(img);
-                    document.body.appendChild(div);
-                    elementCache['component' + i] = div;// 缓存元素
-                }
+                const div = elementCache[i];  // 从缓存数组获取组件元素
                 div.style.left = component.x + 'px';
                 div.style.top = component.y + 'px';
                 div.style.width = component.w + 'px';
@@ -78,7 +89,7 @@
 
         // 添加事件监听器，在屏幕宽度变化时实时更新组件
         window.addEventListener('resize', () => {
-            initializeComponents(window.innerWidth);
+            updateComponents(window.innerWidth);
         });
     </script>
 </body>
