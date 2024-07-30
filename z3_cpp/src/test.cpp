@@ -12,9 +12,16 @@
 std::vector<int> soft_c_info;
 std::vector<nia::ls_solver *> sls_solvers;
 nia_overall::ls_solver *overall_solver;
-std::vector<double> x_pos, y_pos, widths, hights;
-std::vector<int> visibles;
-std::vector<std::string> names;
+struct Component
+{
+    double x;
+    double y;
+    double w;
+    double h;
+    int v;
+};
+
+std::vector<Component> components;
 
 void add_sls_solvers_independent()
 {
@@ -31,7 +38,7 @@ void add_sls_solvers_overall()
 {
     overall_solver = new nia_overall::ls_solver(0, 10000, 5, true);
     overall_solver->read_from_file("/sls_smtlib/hard.smt2", soft_c_names);
-    overall_solver->set_components(x_pos, y_pos, widths, hights, visibles, names);
+    components.resize(overall_solver->component_names.size());
 }
 
 bool sls_solve_component(nia::ls_solver *sls_solver, int w, int h, int x, int y, bool is_print = false)
@@ -113,6 +120,15 @@ rectangles.forEach(function (rect) {
 
 int total_check = 0;
 clock_t total_time = 0;
+
+void print_overall_component(int offset_x = 0, int offset_y = 0)
+{
+    for (int c_idx = 0; c_idx < overall_solver->component_names.size(); c_idx++)
+    {
+        Component &c = components[c_idx];
+        overall_solver->print_component(c.x, c.y, c.w, c.h, c.v, c_idx);
+    }
+}
 void test_solve_cpp(int width, bool is_print = false)
 {
 #ifdef DEBUG
@@ -134,7 +150,7 @@ void test_solve_cpp(int width, bool is_print = false)
     if (overall_solver->local_search())
     {
         if (is_print)
-            overall_solver->print_components(x_pos, y_pos, widths, hights, visibles);
+            print_overall_component();
         else
             std::cout << "sat\n";
             // overall_solver->record_soft_var_solution(soft_c_info);
@@ -144,31 +160,6 @@ void test_solve_cpp(int width, bool is_print = false)
     }
     else
         std::cout << "unsat" << std::endl;
-}
-
-std::vector<double> return_x_pos()
-{
-    return x_pos;
-}
-
-std::vector<double> return_y_pos()
-{
-    return y_pos;
-}
-
-std::vector<double> return_widths()
-{
-    return widths;
-}
-
-std::vector<double> return_hights()
-{
-    return hights;
-}
-
-std::vector<int> return_visibiles()
-{
-    return visibles;
 }
 
 int main()
@@ -195,14 +186,21 @@ int main()
     return 0;
 }
 
+std::vector<Component> getComponents(int width)
+{
+    test_solve_cpp(width, true);
+    return components;
+}
+
 EMSCRIPTEN_BINDINGS(my_module)
 {
-    emscripten::register_vector<double>("vector<double>");
-    emscripten::register_vector<int>("vector<int>");
-    emscripten::function("test_solve_cpp", &test_solve_cpp);
-    emscripten::function("return_x_pos", &return_x_pos);
-    emscripten::function("return_y_pos", &return_y_pos);
-    emscripten::function("return_widths", &return_widths);
-    emscripten::function("return_hights", &return_hights);
-    emscripten::function("return_visibiles", &return_visibiles);
+    emscripten::value_object<Component>("Component")
+        .field("x", &Component::x)
+        .field("y", &Component::y)
+        .field("w", &Component::w)
+        .field("h", &Component::h)
+        .field("v", &Component::v);
+
+    emscripten::register_vector<Component>("vector<Component>");
+    emscripten::function("getComponents", &getComponents);
 }

@@ -6,34 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_build_instance.cpp
-nia_ls.h
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_ls.h
-../utils/matrix.h
-/home/libh/emscripten/project/z3_cpp/src/utils/matrix.h
-
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_inc.cpp
-nia_ls.h
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_ls.h
-cstdlib
--
-iostream
--
-cstdio
--
-fstream
--
-
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_initialize.cpp
-nia_ls.h
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_ls.h
-
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_ls.cpp
-nia_ls.h
-/home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_ls.h
-sstream
--
-
 /home/libh/emscripten/project/z3_cpp/src/sls_solver_overall/nia_ls.h
 cstdio
 -
@@ -80,16 +52,6 @@ nia_ls.h
 set
 -
 sstream
--
-
-/home/libh/emscripten/project/z3_cpp/src/utils/matrix.h
-iostream
--
-vector
--
-ration_num.h
-/home/libh/emscripten/project/z3_cpp/src/utils/ration_num.h
-map
 -
 
 /home/libh/emscripten/project/z3_cpp/src/utils/nia_Array.h

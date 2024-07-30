@@ -28,25 +28,20 @@
         }
 
         function updateComponents(screenWidth) {
-            const result = moduleInstance.test_solve_cpp(screenWidth, true);
-            console.log(result);  // 输出 12
-            const x_pos = moduleInstance.return_x_pos();
-            const y_pos = moduleInstance.return_y_pos();
-            const widths = moduleInstance.return_widths();
-            const hights = moduleInstance.return_hights();
-            const visibles = moduleInstance.return_visibiles();
+            const components = moduleInstance.getComponents(screenWidth);
 
             // 删除现有组件
             document.querySelectorAll('.component').forEach(e => e.remove());
 
-            for (let i = 0; i < x_pos.size(); i++) {
+            for (let i = 0; i < components.size(); i++) {
                 const div = document.createElement('div');
+                const component = components.get(i);
                 div.className = 'component';
-                div.style.left = x_pos.get(i) + 'px';
-                div.style.top = y_pos.get(i) + 'px';
-                div.style.width = widths.get(i) + 'px';
-                div.style.height = hights.get(i) + 'px';
-                div.style.visibility = visibles.get(i) ? 'visible' : 'hidden';
+                div.style.left = component.x + 'px';
+                div.style.top = component.y + 'px';
+                div.style.width = component.w + 'px';
+                div.style.height = component.h + 'px';
+                div.style.visibility = component.v ? 'visible' : 'hidden';
                 document.body.appendChild(div);
             }
         }
