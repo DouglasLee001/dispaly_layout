@@ -9,12 +9,33 @@
             position: absolute;
             border: 1px solid black;
         }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
 <body>
     <script>
         let moduleInstance = null;
+        const images = [];
+        const elementCache = {};
+
+        // 加载图片文件名列表
+        fetch('imageList.json')
+            .then(response => response.json())
+            .then(imageFiles => {
+                // 预加载所有图片
+                imageFiles.forEach((fileName, index) => {
+                    const img = new Image();
+                    img.src = `images/${fileName}`;
+                    images[index] = img;
+                });
+                // 在图片加载完成后初始化组件
+                initializeComponents(window.innerWidth);
+            });
 
         function initializeComponents(screenWidth) {
             if (!moduleInstance) {
@@ -30,19 +51,25 @@
         function updateComponents(screenWidth) {
             const components = moduleInstance.getComponents(screenWidth);
 
-            // 删除现有组件
-            document.querySelectorAll('.component').forEach(e => e.remove());
-
             for (let i = 0; i < components.size(); i++) {
-                const div = document.createElement('div');
                 const component = components.get(i);
-                div.className = 'component';
+                let div = elementCache['component' + i];
+
+                if (!div) {
+                    // 如果组件不存在，则创建新的组件并缓存
+                    div = document.createElement('div');
+                    div.id = 'component' + i;
+                    div.className = 'component';
+                    const img = images[0].cloneNode(); // 使用 cloneNode 防止图片被多次添加
+                    div.appendChild(img);
+                    document.body.appendChild(div);
+                    elementCache['component' + i] = div;// 缓存元素
+                }
                 div.style.left = component.x + 'px';
                 div.style.top = component.y + 'px';
                 div.style.width = component.w + 'px';
                 div.style.height = component.h + 'px';
                 div.style.visibility = component.v ? 'visible' : 'hidden';
-                document.body.appendChild(div);
             }
         }
 
