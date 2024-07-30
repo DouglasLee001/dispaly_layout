@@ -13,10 +13,10 @@
         }
 
         .text {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 16px;
+
         }
 
         img {
@@ -54,20 +54,19 @@
                 div.id = name;
                 div.className = 'component';
 
-                const componentDefinition = componentDefinitions[name];
-                if (componentDefinition) {
-                    if (componentDefinition.type === 'text') {
-                        div.className += ' text';
-                        div.textContent = componentDefinition.content;
-                    } else if (componentDefinition.type === 'image') {
-                        const img = new Image();
-                        img.src = componentDefinition.content;
-                        div.appendChild(img);
-                    }
+                const imageurl = imageurls[name];
+                if (imageurl) {
+                    const img = new Image();
+                    img.src = imageurl;
+                    div.appendChild(img);
+
                 }
                 else {
+                    const text = texts[name];
                     div.className += ' text';
-                    div.textContent = name;
+                    if (text) {
+                        div.textContent = text;
+                    }
                 }
                 document.body.appendChild(div);
                 elementCache.push(div);  // 将组件元素添加到缓存数组
