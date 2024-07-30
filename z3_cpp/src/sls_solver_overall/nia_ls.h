@@ -29,15 +29,15 @@ namespace nia_overall
         uint64_t var_idx;
         uint64_t lit_idx;
         ration_num coff;
-        var_lit(uint64_t _var_idx, uint64_t _lit_idx, ration_num _coff) : var_idx(_var_idx), lit_idx(_lit_idx), coff(_coff){};
+        var_lit(uint64_t _var_idx, uint64_t _lit_idx, ration_num _coff) : var_idx(_var_idx), lit_idx(_lit_idx), coff(_coff) {};
     };
 
     struct coff_var
     {
         int var_idx;
         ration_num coff;
-        coff_var(){};
-        coff_var(int _var_idx, ration_num _coff) : var_idx(_var_idx), coff(_coff){};
+        coff_var() {};
+        coff_var(int _var_idx, ration_num _coff) : var_idx(_var_idx), coff(_coff) {};
     };
     // if is_nia_lit: \sum coff*var<=key
     // else:_vars[delta]
@@ -161,6 +161,7 @@ namespace nia_overall
         // input transformation
         bool has_unidentified_lits = false; // if the literals contains unidentified lits
         void read_from_file(const std::string &file_name, const std::vector<std::string> &soft_c_names = {});
+        void set_components(std::vector<double> &x_pos, std::vector<double> &y_pos, std::vector<double> &widths, std::vector<double> &hights, std::vector<bool> &visibles, std::vector<std::string> &c_names);
         void split_string(std::string &in_string, std::vector<std::string> &str_vec, std::string pattern);
         void build_lits(std::string &in_string);
         void build_instance_original(const std::vector<std::string> &unit_lits = {});
@@ -279,6 +280,7 @@ namespace nia_overall
         void print_mv();
         void print_full_model();
         void print_components(int offset_x = 0, int offset_y = 0);
+        void print_components( std::vector<double> &x_pos, std::vector<double> &y_pos, std::vector<double> &widths, std::vector<double> &hights, std::vector<bool> &visibles,int offset_x=0, int offset_y=0);
         void print_mv_vars(uint64_t var_idx);
         void print_end();
         void print_var_solution(std::string &var_name, std::string &var_value);

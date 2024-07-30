@@ -12,6 +12,9 @@
 std::vector<int> soft_c_info;
 std::vector<nia::ls_solver *> sls_solvers;
 nia_overall::ls_solver *overall_solver;
+std::vector<double> x_pos, y_pos, widths, hights;
+std::vector<bool> visibles;
+std::vector<std::string> names;
 
 void add_sls_solvers_independent()
 {
@@ -28,6 +31,7 @@ void add_sls_solvers_overall()
 {
     overall_solver = new nia_overall::ls_solver(0, 10000, 5, true);
     overall_solver->read_from_file("/sls_smtlib/hard.smt2", soft_c_names);
+    overall_solver->set_components(x_pos, y_pos, widths, hights, visibles, names);
 }
 
 bool sls_solve_component(nia::ls_solver *sls_solver, int w, int h, int x, int y, bool is_print = false)
@@ -114,8 +118,6 @@ void test_solve_cpp(int width, bool is_print = false)
 #ifdef DEBUG
     clock_t start_t = clock();
 #endif
-    if (is_print)
-        std::cout << "var rectangles = [\n";
     static int previous_interval_idx = -1;
     int curr_interval_idx = find_width_interval(width);
     if (curr_interval_idx == -1)
@@ -132,21 +134,36 @@ void test_solve_cpp(int width, bool is_print = false)
     if (overall_solver->local_search())
     {
         if (is_print)
-            overall_solver->print_components();
+            overall_solver->print_components(x_pos, y_pos, widths, hights, visibles);
         else
             std::cout << "sat\n";
-        // overall_solver->record_soft_var_solution(soft_c_info);
-        // refine_by_sls_solver(is_print);
+            // overall_solver->record_soft_var_solution(soft_c_info);
+            // refine_by_sls_solver(is_print);
 #ifdef DEBUG
-        // clock_t end_t = clock();
-        total_check++;
-        // total_time += (end_t - start_t);
 #endif
     }
     else
         std::cout << "unsat" << std::endl;
-    if (is_print)
-        print_end();
+}
+
+std::vector<double> return_x_pos()
+{
+    return x_pos;
+}
+
+std::vector<double> return_y_pos()
+{
+    return y_pos;
+}
+
+std::vector<double> return_widths()
+{
+    return widths;
+}
+
+std::vector<double> return_hights()
+{
+    return hights;
 }
 
 int main()
@@ -166,13 +183,19 @@ int main()
     // test_solve_cpp(1400, true);
     // test_solve_cpp(1600, true);
     // test_solve_cpp(1800, true);
-// #ifdef DEBUG
-//     std::cout << total_time << std::endl;
-//     std::cout << total_time / total_check << std::endl;
-// #endif
+    // #ifdef DEBUG
+    //     std::cout << total_time << std::endl;
+    //     std::cout << total_time / total_check << std::endl;
+    // #endif
     return 0;
 }
 
-EMSCRIPTEN_BINDINGS(my_module) {
+EMSCRIPTEN_BINDINGS(my_module)
+{
+    emscripten::register_vector<double>("vector<double>");
     emscripten::function("test_solve_cpp", &test_solve_cpp);
+    emscripten::function("return_x_pos", &return_x_pos);
+    emscripten::function("return_y_pos", &return_y_pos);
+    emscripten::function("return_widths", &return_widths);
+    emscripten::function("return_hights", &return_hights);
 }

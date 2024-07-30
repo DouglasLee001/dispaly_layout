@@ -106,6 +106,25 @@ namespace nia_overall
             std::cout << " , display: \'block\' },\n";
         }
     }
+
+    void ls_solver::print_components( std::vector<double> &x_pos, std::vector<double> &y_pos, std::vector<double> &widths, std::vector<double> &hights, std::vector<bool> &visibles,int offset_x, int offset_y)
+    {
+        const size_t component_num = component_names.size();
+        for (size_t c_idx = 0; c_idx < component_num - 1; c_idx++)
+        {
+            if (_solution[components_idx[5 * c_idx + 4]] < 0)
+            {
+                visibles[c_idx] = false;
+                continue;
+            }
+            visibles[c_idx] = true;
+            widths[c_idx] = _solution[components_idx[5 * c_idx]].to_double();
+            hights[c_idx] = _solution[components_idx[5 * c_idx + 1]].to_double();
+            x_pos[c_idx] = _solution[components_idx[5 * c_idx + 2]].to_double() + offset_x;
+            y_pos[c_idx] = _solution[components_idx[5 * c_idx + 3]].to_double() + offset_x;
+        }
+    }
+
     void ls_solver::print_full_model()
     {
         std::cout << "var rectangles = [\n";

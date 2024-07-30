@@ -29,15 +29,15 @@ namespace nia
         uint64_t var_idx;
         uint64_t lit_idx;
         ration_num coff;
-        var_lit(uint64_t _var_idx, uint64_t _lit_idx, ration_num _coff) : var_idx(_var_idx), lit_idx(_lit_idx), coff(_coff){};
+        var_lit(uint64_t _var_idx, uint64_t _lit_idx, ration_num _coff) : var_idx(_var_idx), lit_idx(_lit_idx), coff(_coff) {};
     };
 
     struct coff_var
     {
         int var_idx;
         ration_num coff;
-        coff_var(){};
-        coff_var(int _var_idx, ration_num _coff) : var_idx(_var_idx), coff(_coff){};
+        coff_var() {};
+        coff_var(int _var_idx, ration_num _coff) : var_idx(_var_idx), coff(_coff) {};
     };
     // if is_nia_lit: \sum coff*var<=key
     // else:_vars[delta]

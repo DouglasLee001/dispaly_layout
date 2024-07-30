@@ -83,6 +83,17 @@ namespace nia_overall
         lits_in_cls = new Array((int)_num_lits);
         record_info_after_read_file();
     }
+
+    void ls_solver::set_components(std::vector<double> &x_pos, std::vector<double> &y_pos, std::vector<double> &widths, std::vector<double> &hights, std::vector<bool> &visibles, std::vector<std::string> &c_names)
+    {
+        const size_t component_num = component_names.size();
+        x_pos.resize(component_num);
+        y_pos.resize(component_num);
+        widths.resize(component_num);
+        hights.resize(component_num);
+        visibles.resize(component_num);
+        c_names = component_names;
+    }
     void ls_solver::record_info_after_read_file()
     {
         _lits_after_read_file = _lits;
