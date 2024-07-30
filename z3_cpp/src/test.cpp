@@ -13,7 +13,7 @@ std::vector<int> soft_c_info;
 std::vector<nia::ls_solver *> sls_solvers;
 nia_overall::ls_solver *overall_solver;
 std::vector<double> x_pos, y_pos, widths, hights;
-std::vector<bool> visibles;
+std::vector<int> visibles;
 std::vector<std::string> names;
 
 void add_sls_solvers_independent()
@@ -166,6 +166,11 @@ std::vector<double> return_hights()
     return hights;
 }
 
+std::vector<int> return_visibiles()
+{
+    return visibles;
+}
+
 int main()
 {
     add_sls_solvers_independent();
@@ -193,9 +198,11 @@ int main()
 EMSCRIPTEN_BINDINGS(my_module)
 {
     emscripten::register_vector<double>("vector<double>");
+    emscripten::register_vector<int>("vector<int>");
     emscripten::function("test_solve_cpp", &test_solve_cpp);
     emscripten::function("return_x_pos", &return_x_pos);
     emscripten::function("return_y_pos", &return_y_pos);
     emscripten::function("return_widths", &return_widths);
     emscripten::function("return_hights", &return_hights);
+    emscripten::function("return_visibiles", &return_visibiles);
 }

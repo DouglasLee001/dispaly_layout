@@ -14,16 +14,31 @@
 
 <body>
     <script>
-        createModule().then(Module => {
-            // 获取返回的 vector<Component>
-            const result = Module.test_solve_cpp(600, true);
-            console.log(result);  // 输出 12
-            const x_pos = Module.return_x_pos();
-            const y_pos = Module.return_y_pos();
-            const widths = Module.return_widths();
-            const hights = Module.return_hights();
+        let moduleInstance = null;
 
-            // 遍历每个组件，创建对应的 HTML 元素
+        function initializeComponents(screenWidth) {
+            if (!moduleInstance) {
+                createModule().then(Module => {
+                    moduleInstance = Module;
+                    updateComponents(screenWidth);
+                });
+            } else {
+                updateComponents(screenWidth);
+            }
+        }
+
+        function updateComponents(screenWidth) {
+            const result = moduleInstance.test_solve_cpp(screenWidth, true);
+            console.log(result);  // 输出 12
+            const x_pos = moduleInstance.return_x_pos();
+            const y_pos = moduleInstance.return_y_pos();
+            const widths = moduleInstance.return_widths();
+            const hights = moduleInstance.return_hights();
+            const visibles = moduleInstance.return_visibiles();
+
+            // 删除现有组件
+            document.querySelectorAll('.component').forEach(e => e.remove());
+
             for (let i = 0; i < x_pos.size(); i++) {
                 const div = document.createElement('div');
                 div.className = 'component';
@@ -31,8 +46,17 @@
                 div.style.top = y_pos.get(i) + 'px';
                 div.style.width = widths.get(i) + 'px';
                 div.style.height = hights.get(i) + 'px';
+                div.style.visibility = visibles.get(i) ? 'visible' : 'hidden';
                 document.body.appendChild(div);
             }
+        }
+
+        // 获取初始屏幕宽度并初始化组件
+        initializeComponents(window.innerWidth);
+
+        // 添加事件监听器，在屏幕宽度变化时实时更新组件
+        window.addEventListener('resize', () => {
+            initializeComponents(window.innerWidth);
         });
     </script>
 </body>

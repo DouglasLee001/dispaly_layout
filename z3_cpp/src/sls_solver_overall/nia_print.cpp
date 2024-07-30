@@ -107,17 +107,17 @@ namespace nia_overall
         }
     }
 
-    void ls_solver::print_components( std::vector<double> &x_pos, std::vector<double> &y_pos, std::vector<double> &widths, std::vector<double> &hights, std::vector<bool> &visibles,int offset_x, int offset_y)
+    void ls_solver::print_components(std::vector<double> &x_pos, std::vector<double> &y_pos, std::vector<double> &widths, std::vector<double> &hights, std::vector<int> &visibles, int offset_x, int offset_y)
     {
         const size_t component_num = component_names.size();
         for (size_t c_idx = 0; c_idx < component_num - 1; c_idx++)
         {
             if (_solution[components_idx[5 * c_idx + 4]] < 0)
             {
-                visibles[c_idx] = false;
+                visibles[c_idx] = 0;
                 continue;
             }
-            visibles[c_idx] = true;
+            visibles[c_idx] = 1;
             widths[c_idx] = _solution[components_idx[5 * c_idx]].to_double();
             hights[c_idx] = _solution[components_idx[5 * c_idx + 1]].to_double();
             x_pos[c_idx] = _solution[components_idx[5 * c_idx + 2]].to_double() + offset_x;
