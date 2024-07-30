@@ -49,6 +49,7 @@
             elementCache.length = 0; // 清空缓存数组
             for (let i = 0; i < componentNames.size(); i++) {
                 const name = componentNames.get(i);
+                console.log(name);
                 let div = document.createElement('div');
                 div.id = name;
                 div.className = 'component';
@@ -63,6 +64,10 @@
                         img.src = componentDefinition.content;
                         div.appendChild(img);
                     }
+                }
+                else {
+                    div.className += ' text';
+                    div.textContent = name;
                 }
                 document.body.appendChild(div);
                 elementCache.push(div);  // 将组件元素添加到缓存数组

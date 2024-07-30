@@ -1,0 +1,17 @@
+const componentDefinitions = {
+    "fast_content_0": { type: "image", content: "images/fast_content_0.png" },
+    "fast_content_1": { type: "image", content: "images/fast_content_1.png" },
+    "fast_content_2": { type: "image", content: "images/fast_content_2.png" },
+    "fast_content_3": { type: "image", content: "images/fast_content_3.png" },
+    "theme_kid_0": { type: "image", content: "images/theme_kid_0.png" },
+    "theme_kid_1": { type: "image", content: "images/theme_kid_1.png" },
+    "theme_kid_2": { type: "image", content: "images/theme_kid_2.png" },
+    "theme_kid_3": { type: "image", content: "images/theme_kid_3.png" },
+    "theme_kid_4": { type: "image", content: "images/theme_kid_4.png" },
+    "theme_kid_5": { type: "image", content: "images/theme_kid_5.png" },
+    "title_pic": { type: "image", content: "images/title_pic.png" },
+    "main_pic": { type: "image", content: "images/main_pic.jpg" },
+    "search_bar_kid_1": { type: "image", content: "images/search_bar_kid_1.png" },
+    "title_buttons_holder": { type: "image", content: "images/title_buttons_holder.png" },
+    "back_ground": { type: "image", content: "images/back_ground.jpg" },
+};
