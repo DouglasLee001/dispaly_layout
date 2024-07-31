@@ -1,8 +1,5 @@
 const imageurls = {
-    "fast_content_0": "images/fast_content_0.png",
-    "fast_content_1": "images/fast_content_1.png",
-    "fast_content_2": "images/fast_content_2.png",
-    "fast_content_3": "images/fast_content_3.png",
+    "back_ground": "images/back_ground.jpg",
     "theme_kid_0": "images/theme_kid_0.png",
     "theme_kid_1": "images/theme_kid_1.png",
     "theme_kid_2": "images/theme_kid_2.png",
@@ -11,13 +8,18 @@ const imageurls = {
     "theme_kid_5": "images/theme_kid_5.png",
     "title_pic": "images/title_pic.jpg",
     "main_pic": "images/main_pic.jpg",
+    "search_bar": "images/search_bar.jpg",
     "search_bar_kid_1": "images/search_bar_kid_1.png",
     "title_buttons_2": "images/title_buttons_holder.png",
     "title_buttons": "images/title_buttons_holder.png",
-    "back_ground": "images/back_ground.jpg",
-    "search_bar": "images/search_bar.jpg",
+
+
     "search_2_kid_0": "images/search_2_kid_0.jpg",
     "title_buttons_2_kid_1": "images/title_buttons_2_kid_1.jpg",
+    "fast_content_0": "images/fast_content_0.png",
+    "fast_content_1": "images/fast_content_1.png",
+    "fast_content_2": "images/fast_content_2.png",
+    "fast_content_3": "images/fast_content_3.png",
 };
 
 const texts = {
