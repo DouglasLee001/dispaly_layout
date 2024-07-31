@@ -1,0 +1,7 @@
+/home/libh/emscripten/project/amazon_outlet/build/CMakeFiles/rebuild_cache.dir
+/home/libh/emscripten/project/amazon_outlet/build/CMakeFiles/ind_cpp.dir
+/home/libh/emscripten/project/amazon_outlet/build/CMakeFiles/d_sources.dir
+/home/libh/emscripten/project/amazon_outlet/build/CMakeFiles/edit_cache.dir
+/home/libh/emscripten/project/amazon_outlet/build/CMakeFiles/c_sources.dir
+/home/libh/emscripten/project/amazon_outlet/build/CMakeFiles/b_sources.dir
+/home/libh/emscripten/project/amazon_outlet/build/CMakeFiles/a_sources.dir
