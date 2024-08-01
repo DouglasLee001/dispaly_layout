@@ -5,13 +5,19 @@ std::vector<std::string> soft_c_names = {
 
 const std::vector<bool> belong_to_right{
 true,
-false,
+true,
+true,
 };
 const std::vector<double> right_bound{
 4000.0,
+1220.0,
 920.0,
 };
 const std::vector<std::vector<std::string>> soft_constraints = {
 {
+"spring_edit_feasible",
+},
+{
+"spring_edit_thin_feasible",
 },
 };

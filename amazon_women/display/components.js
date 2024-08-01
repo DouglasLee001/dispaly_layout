@@ -36,6 +36,8 @@ const imageurls = {
     "spring_edit_kid_0": "images/w0.png",
     "spring_edit_kid_1": "images/w1.png",
 
+    "spring_edit_thin_kid_0": "images/single.png",
+
     "basic_right_pic_kid_0": "images/w2.png",
     "basic_right_pic_kid_1": "images/w3.png",
 
