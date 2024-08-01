@@ -1,0 +1,1 @@
+/home/libh/emscripten/emsdk/upstream/emscripten/em++  -O3 -w  -s MODULARIZE=1 -s EXPORT_NAME=createModule -lembind --preload-file /home/libh/emscripten/project/amazon_women/sls_smtlib@/sls_smtlib @CMakeFiles/ind_cpp.dir/objects1.rsp  -o ind_cpp.js 
