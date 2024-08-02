@@ -67,6 +67,19 @@ const imageurls = {
     "tag_short": "images/tag_short.png",
     "branch_short": "images/branch_short.png",
 
+    "main_left_body_kid_0_kid_0": "images/s0.png",
+    "main_left_body_kid_1_kid_0": "images/s1.png",
+    "main_left_body_kid_2_kid_0": "images/s2.png",
+    "main_left_body_kid_3_kid_0": "images/s3.png",
+    "main_left_body_kid_4_kid_0": "images/s4.png",
+    "main_left_body_kid_5_kid_0": "images/s5.png",
+    "main_left_body_kid_6_kid_0": "images/s0.png",
+    "main_left_body_kid_7_kid_0": "images/s1.png",
+    "main_left_body_kid_8_kid_0": "images/s2.png",
+    "main_left_body_kid_9_kid_0": "images/s3.png",
+
+    "Releases": "images/release.png",
+
 };
 
 const texts = {
@@ -75,16 +88,6 @@ const texts = {
     "add_contributors": "+269 contributors",
     "languages": "Languages",
 
-    "main_left_body_kid_0_kid_0": "src",
-    "main_left_body_kid_1_kid_0": "doc",
-    "main_left_body_kid_2_kid_0": "main",
-    "main_left_body_kid_3_kid_0": "cmake",
-    "main_left_body_kid_4_kid_0": "docker",
-    "main_left_body_kid_5_kid_0": "noarch",
-    "main_left_body_kid_6_kid_0": "script",
-    "main_left_body_kid_7_kid_0": "resource",
-    "main_left_body_kid_8_kid_0": "git",
-    "main_left_body_kid_9_kid_0": "gitignore",
 
     "main_left_body_kid_0_kid_1": "Bump docker/build-push-action from 6.4.0 ",
     "main_left_body_kid_1_kid_1": "Merge shared parts from polysat b",
@@ -109,7 +112,6 @@ const texts = {
     "main_left_body_kid_9_kid_2": "6 months ago",
 
     "packages": "Packages",
-    "Releases": "Releases",
     "z3_13_0": "z3_13_0",
     "forty_release": "+ 40 releases",
 
