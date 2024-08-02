@@ -35,7 +35,6 @@ const imageurls = {
     "search_bar_kid_1": "images/search_go.png",
     "search_bar_kid_0": "images/search_bar.png",
     "left_buttons_title": "images/left_buttons_title.png",
-    "left_buttons_watch": "images/left_buttons_watch.png",
     "search_kid_0": "images/search_kid_0.png",
     "search_kid_6": "images/baskect.png",
     "search_kid_5": "images/help.png",
@@ -83,5 +82,7 @@ const texts = {
 
     "menus_kid_1": "Prime Vedio",
     "back_to_top": "Back to Top",
+
+    "left_buttons_watch": "Available to rent or buy R",
 
 };

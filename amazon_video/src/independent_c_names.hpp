@@ -15,7 +15,7 @@ const std::vector<double> right_bound{
 787.2727272727273,
 700.0,
 640.0,
-580.0,
+630.0,
 };
 const std::vector<std::vector<std::string>> soft_constraints = {
 {

@@ -1,7 +1,0 @@
-/home/libh/emscripten/project/amazon_video/build/CMakeFiles/rebuild_cache.dir
-/home/libh/emscripten/project/amazon_video/build/CMakeFiles/ind_cpp.dir
-/home/libh/emscripten/project/amazon_video/build/CMakeFiles/d_sources.dir
-/home/libh/emscripten/project/amazon_video/build/CMakeFiles/edit_cache.dir
-/home/libh/emscripten/project/amazon_video/build/CMakeFiles/c_sources.dir
-/home/libh/emscripten/project/amazon_video/build/CMakeFiles/b_sources.dir
-/home/libh/emscripten/project/amazon_video/build/CMakeFiles/a_sources.dir
