@@ -1,7 +1,0 @@
-/home/libh/emscripten/project/jingdong/build/CMakeFiles/rebuild_cache.dir
-/home/libh/emscripten/project/jingdong/build/CMakeFiles/ind_cpp.dir
-/home/libh/emscripten/project/jingdong/build/CMakeFiles/d_sources.dir
-/home/libh/emscripten/project/jingdong/build/CMakeFiles/edit_cache.dir
-/home/libh/emscripten/project/jingdong/build/CMakeFiles/c_sources.dir
-/home/libh/emscripten/project/jingdong/build/CMakeFiles/b_sources.dir
-/home/libh/emscripten/project/jingdong/build/CMakeFiles/a_sources.dir

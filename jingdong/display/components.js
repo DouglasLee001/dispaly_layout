@@ -76,9 +76,6 @@ const texts = {
     "search_buttons_kid_3": "Paper",
     "search_buttons_kid_4": "Digital",
     "search_buttons_kid_5": "PC",
-    "search_buttons_kid_6": "Outlet",
-    "search_buttons_kid_7": "ALL",
-    "search_buttons_kid_8": "Phone",
 
     "title_top_left_kid_0": "home",
     "title_top_left_kid_1": "email",
