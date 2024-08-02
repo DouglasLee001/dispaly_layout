@@ -1,4 +1,6 @@
 const imageurls = {
+
+    "title_holder": "images/yellow.png",
     "pics_content_0_pic": "images/pic0.png",
     "pics_content_1_pic": "images/pic1.png",
     "pics_content_2_pic": "images/pic2.png",
