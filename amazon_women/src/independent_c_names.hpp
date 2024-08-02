@@ -16,8 +16,10 @@ const std::vector<double> right_bound{
 const std::vector<std::vector<std::string>> soft_constraints = {
 {
 "spring_edit_feasible",
+"basic_right_pic_feasible",
 },
 {
 "spring_edit_thin_feasible",
+"basic_right_pic_thin_feasible",
 },
 };

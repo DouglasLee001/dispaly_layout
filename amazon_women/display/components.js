@@ -49,6 +49,7 @@ const imageurls = {
 
     "back_top": "images/blue.png",
     "main_title": "images/main_title.png",
+    "basic_right_pic_thin": "images/single_1.png",
 
 };
 
