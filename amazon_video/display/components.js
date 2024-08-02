@@ -8,18 +8,24 @@ const imageurls = {
     "video_1_body_kid_2": "images/movie2.png",
     "video_1_body_kid_3": "images/movie3.png",
     "video_1_body_kid_4": "images/movie4.png",
+    "video_1_body_kid_5": "images/movie5.png",
+    "video_1_body_kid_6": "images/movie6.png",
 
     "video_2_body_kid_0": "images/movie5.png",
     "video_2_body_kid_1": "images/movie6.png",
     "video_2_body_kid_2": "images/movie7.png",
     "video_2_body_kid_3": "images/movie8.png",
     "video_2_body_kid_4": "images/movie9.png",
+    "video_2_body_kid_5": "images/movie10.png",
+    "video_2_body_kid_6": "images/movie11.png",
 
     "video_3_body_kid_0": "images/movie10.png",
     "video_3_body_kid_1": "images/movie11.png",
     "video_3_body_kid_2": "images/movie12.png",
     "video_3_body_kid_3": "images/movie1.png",
     "video_3_body_kid_4": "images/movie2.png",
+    "video_3_body_kid_5": "images/movie3.png",
+    "video_3_body_kid_6": "images/movie4.png",
 
     "left_buttons_detail": "images/detail.png",
 
