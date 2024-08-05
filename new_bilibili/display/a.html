@@ -9,7 +9,7 @@
     <style>
         .component {
             position: absolute;
-            border: 1px solid black;
+            /* border: 1px solid black; */
         }
 
         .text {
@@ -65,17 +65,18 @@
                 div.id = key;
                 div.className = 'component text';
                 const text = texts[key];
-                div.textContent = text;
+                // div.style.border = "1px solid";
+                div.textContent = text[0];
+                div.style.fontSize = text[1];
                 document.body.appendChild(div);
             }
-            for (const key in white_texts) {
+            for (const key in bords) {
                 let div = document.createElement('div');
                 div.id = key;
                 div.className = 'component text';
-                const text = white_texts[key];
-                div.textContent = text;
-                div.style.color = "white";
+                div.style.border = "1px solid";
                 document.body.appendChild(div);
+                console.log(key);
             }
             for (let i = 0; i < componentNames.size(); i++) {
                 const name = componentNames.get(i);
@@ -83,6 +84,7 @@
                 if (!div2) {
                     let div = document.createElement('div');
                     div.id = name;
+                    // div.textContent = name;
                     div.className = 'component text';
                     document.body.appendChild(div);
                     elementCache.push(div);

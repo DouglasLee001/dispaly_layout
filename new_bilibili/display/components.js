@@ -33,63 +33,43 @@ const imageurls = {
     "side_item_3": "images/side_3.jpg",
     "side_item_4": "images/side_4.jpg",
 
-    // "title_bg": "images/title_bg.png",
-    // "title_icon": "images/title_icon.png",
+    "history": "images/history.png",
+    "game_icon": "images/game.png",
+    "email_icon": "images/email.png",
+    "person": "images/person.png",
+    "search_go": "images/search_go.png",
+    "scan_icon": "images/scan.png",
 
-    // "icon_1": "images/icon_1.png",
-    // "icon_2": "images/icon_2.png",
-
-    // "submit": "images/submit.png",
-    // "title_search_kid_1": "images/title_search_kid_1.png",
-    // "title_search_kid_0": "images/title_search_kid_0.png"
 
 
 };
 
 const texts = {
-    // "hot_table_2_kid_0": "Theme",
-    // "hot_table_2_kid_1": "Games",
-    // "hot_table_2_kid_2": "Society",
-    // "hot_table_2_kid_3": "Live",
-    // "hot_table_2_kid_4": "Lesson",
-    // "hot_table_2_kid_5": "Songs",
 
-    // "hot_table_1_kid_0": "Theme",
-    // "hot_table_1_kid_1": "Games",
-    // "hot_table_1_kid_2": "Society",
-    // "hot_table_1_kid_3": "Live",
-    // "hot_table_1_kid_4": "Lesson",
-    // "hot_table_1_kid_5": "Songs",
-    // "hot_table_1_kid_6": "Theme",
-    // "hot_table_1_kid_7": "Games",
-    // "hot_table_1_kid_8": "Society",
-    // "hot_table_1_kid_9": "Live",
-    // "hot_table_1_kid_10": "Lesson",
-    // "hot_table_1_kid_11": "Songs",
-    // "hot_table_1_kid_12": "Theme",
-    // "hot_table_1_kid_13": "Games",
-    // "hot_table_1_kid_14": "Society",
-    // "hot_table_1_kid_15": "Live",
-    // "hot_table_1_kid_16": "Lesson",
-    // "hot_table_1_kid_17": "Songs",
+    "search_bar_kid_1": ["Tab / to search", "16px"],
+    "title_phone_down_kid_0": ["直播", "16px"],
+    "title_phone_down_kid_1": ["推荐", "16px"],
+    "title_phone_down_kid_2": ["热门", "16px"],
+    "title_phone_down_kid_3": ["动画", "16px"],
+    "title_phone_down_kid_4": ["影视", "16px"],
+    "title_phone_down_kid_5": ["奥运", "16px"],
+    "title_phone_down_kid_6": ["游戏", "16px"],
+
+
+    "title_pad_center_kid_0": ["影视", "20px"],
+    "title_pad_center_kid_1": ["奥运", "20px"],
+    "title_pad_center_kid_2": ["游戏", "20px"],
+
+    "login_info": ["登陆同步账号信息", "28px"],
+    "title_tv_down_flow_kid_0": ["我的", "28px"],
+    "title_tv_down_flow_kid_1": ["精选", "28px"],
+    "title_tv_down_flow_kid_2": ["追番", "28px"],
+    "title_tv_down_flow_kid_3": ["奥运", "28px"],
+    "title_tv_down_flow_kid_4": ["电影", "28px"],
+    "title_tv_down_flow_kid_5": ["游戏", "28px"],
+    "title_tv_down_flow_kid_6": ["美食", "28px"],
 };
 
-const white_texts = {
-    // "title_button_left_kid_0": "TV",
-    // "title_button_left_kid_1": "Radio",
-    // "title_button_left_kid_2": "Paper",
-    // "title_button_left_kid_3": "News",
-    // "title_button_left_kid_4": "Song",
-    // "title_button_left_kid_5": "GAME",
-    // "title_button_left_kid_6": "LIVE",
-    // "title_button_left_kid_7": "COMIC",
-    // "title_button_left_kid_8": "PARIS",
-
-    // "title_button_right_kid_0": "TV",
-    // "title_button_right_kid_1": "Radio",
-    // "title_button_right_kid_2": "Paper",
-    // "title_button_right_kid_3": "News",
-    // "title_button_right_kid_4": "Song",
-    // "title_button_right_kid_5": "GAME",
-    // "title_button_right_kid_6": "LIVE",
+const bords = {
+    "search_bar": "1px",
 };

@@ -19,7 +19,7 @@ const std::vector<double> right_bound{
 1480.0,
 1210.0,
 970.0,
-850.0,
+800.0,
 730.0,
 490.0,
 };
