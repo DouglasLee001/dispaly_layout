@@ -47,27 +47,28 @@ const imageurls = {
 const texts = {
 
     "search_bar_kid_1": ["Tab / to search", "16px"],
-    "title_phone_down_kid_0": ["直播", "16px"],
-    "title_phone_down_kid_1": ["推荐", "16px"],
-    "title_phone_down_kid_2": ["热门", "16px"],
-    "title_phone_down_kid_3": ["动画", "16px"],
-    "title_phone_down_kid_4": ["影视", "16px"],
-    "title_phone_down_kid_5": ["奥运", "16px"],
-    "title_phone_down_kid_6": ["游戏", "16px"],
+    "title_phone_down_kid_0": ["直播", "18px"],
+    "title_phone_down_kid_1": ["推荐", "18px"],
+    "title_phone_down_kid_2": ["热门", "18px"],
+    "title_phone_down_kid_3": ["动画", "18px"],
+    "title_phone_down_kid_4": ["影视", "18px"],
+    "title_phone_down_kid_5": ["奥运", "18px"],
+    "title_phone_down_kid_6": ["游戏", "18px"],
 
 
     "title_pad_center_kid_0": ["影视", "20px"],
     "title_pad_center_kid_1": ["奥运", "20px"],
     "title_pad_center_kid_2": ["游戏", "20px"],
 
-    "login_info": ["登陆同步账号信息", "28px"],
-    "title_tv_down_flow_kid_0": ["我的", "28px"],
-    "title_tv_down_flow_kid_1": ["精选", "28px"],
-    "title_tv_down_flow_kid_2": ["追番", "28px"],
-    "title_tv_down_flow_kid_3": ["奥运", "28px"],
-    "title_tv_down_flow_kid_4": ["电影", "28px"],
-    "title_tv_down_flow_kid_5": ["游戏", "28px"],
-    "title_tv_down_flow_kid_6": ["美食", "28px"],
+    "login_info": ["登陆同步账号信息", "30px"],
+    "title_tv_down_flow_kid_0": ["我的", "30px"],
+    "title_tv_down_flow_kid_1": ["精选", "30px"],
+    "title_tv_down_flow_kid_2": ["追番", "30px"],
+    "title_tv_down_flow_kid_3": ["奥运", "30px"],
+    "title_tv_down_flow_kid_4": ["电影", "30px"],
+    "title_tv_down_flow_kid_5": ["游戏", "30px"],
+    "title_tv_down_flow_kid_6": ["美食", "30px"],
+    "time": ["12:00", "30px"],
 };
 
 const bords = {
