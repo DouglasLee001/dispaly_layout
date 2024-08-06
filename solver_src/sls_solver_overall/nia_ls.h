@@ -164,14 +164,15 @@ namespace nia_overall
         void split_string(std::string &in_string, std::vector<std::string> &str_vec, std::string pattern);
         void build_lits(std::string &in_string);
         void build_instance_original(const std::vector<std::string> &unit_lits = {});
-        void build_instance_new_width(int _bc_width);
+        void build_instance_new_width(int _bc_width, int _bc_hight = 0);
         void find_bound();
         void prepare_clause_for_resolution(const std::vector<std::vector<int>> clause_vec);
         void find_unit_equal_lits(std::vector<int> &unit_equal_lits_all);
         void prepare_fa_coffs();
         void prepare_cls_lit_idx_for_vars();
-        void equal_vars(ration_num _bc_width = 0); // find out the equalilty among vars, and reset the vars and lits
+        void equal_vars(ration_num _bc_width = 0, ration_num _bc_hight = 0); // find out the equalilty among vars, and reset the vars and lits
         int bc_width_idx = 0;
+        int bc_hight_idx = 0;
         void eliminate_multiple_inequalities(); // a+b<=3 a+b<=2 -->a+b<=2
         bool resolve_multiple_equals(const std::vector<int> &m_lits);
         bool update_by_equals(const std::vector<int> &unit_equal_lits_all);
