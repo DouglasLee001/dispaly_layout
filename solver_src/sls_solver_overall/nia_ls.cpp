@@ -881,6 +881,7 @@ namespace nia_overall
         initialize();
         if (build_unsat)
         {
+            build_unsat = false;
             return false;
         }
         int no_improve_cnt = 0;

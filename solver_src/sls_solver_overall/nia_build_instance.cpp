@@ -1398,6 +1398,8 @@ namespace nia_overall
             if (c.literals.size() != clause_sz)
                 clauses_modified = true;
             c.literals.resize(clause_sz);
+            if(clause_sz==0)
+                build_unsat=true;
         }
         // delete redundant clauses
         std::vector<std::vector<int>> clause_vec(_num_clauses);
