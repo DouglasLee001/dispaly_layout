@@ -76,6 +76,7 @@ namespace nia_overall
         delete_redundant_clauses(original_vec);
         basic_component_name = "BC";
         bc_width_idx = (int)transfer_name_to_var("BC_width", true);
+        bc_hight_idx = (int)transfer_name_to_var("BC_hight", true);
         prepare_components_idx();
         prepare_soft_components_idx(soft_c_names);
         _num_vars = _vars.size();
@@ -316,7 +317,7 @@ namespace nia_overall
             }
         }
     }
-    void ls_solver::equal_vars(ration_num _bc_width)
+    void ls_solver::equal_vars(ration_num _bc_width, ration_num _bc_hight)
     {
         if (_bc_width != 0)
         {
@@ -325,6 +326,14 @@ namespace nia_overall
             preset_values[root_bc_width_idx] = _bc_width;
             _vars[root_bc_width_idx].upper_bound = _bc_width;
             _vars[root_bc_width_idx].low_bound = _bc_width;
+        }
+        if (_bc_hight != 0)
+        {
+            int root_bc_hight_idx = find(bc_hight_idx);
+            _bc_hight = (_bc_hight - fa_const[bc_hight_idx]) / fa_coff[bc_hight_idx];
+            preset_values[root_bc_hight_idx] = _bc_hight;
+            _vars[root_bc_hight_idx].upper_bound = _bc_hight;
+            _vars[root_bc_hight_idx].low_bound = _bc_hight;
         }
 
         bool modified = true;
@@ -646,10 +655,10 @@ namespace nia_overall
         _num_clauses = _clauses.size();
     }
 
-    void ls_solver::build_instance_new_width(int _bc_width)
+    void ls_solver::build_instance_new_width(int _bc_width, int _bc_hight)
     {
         restore_info_before_build_new_width();
-        equal_vars(_bc_width);
+        equal_vars(_bc_width, _bc_hight);
         reduce_clause();
         find_bound();
         reduce_clause();

@@ -83,11 +83,11 @@
                     elementCache.push(div2);
                 }
             }
-            updateComponents(window.innerWidth);
+            updateComponents(window.innerWidth, window.innerHeight);
         }
 
-        function updateComponents(screenWidth) {
-            const components = moduleInstance.getComponents(screenWidth);
+        function updateComponents(screenWidth, screenHight) {
+            const components = moduleInstance.getComponents(screenWidth, screenHight);
 
             for (let i = 0; i < components.size(); i++) {
                 const component = components.get(i);
@@ -105,7 +105,7 @@
 
         // 添加事件监听器，在屏幕宽度变化时实时更新组件
         window.addEventListener('resize', () => {
-            updateComponents(window.innerWidth);
+            updateComponents(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>
