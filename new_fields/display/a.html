@@ -9,7 +9,7 @@
     <style>
         .component {
             position: absolute;
-            border: 1px solid black;
+            /* border: 1px solid black; */
         }
 
         .text {
@@ -17,6 +17,8 @@
             overflow: hidden;
             font-size: 16px;
             display: flex;
+            justify-content: center;
+            align-items: center;
             /* 垂直居中 */
 
         }
@@ -74,7 +76,7 @@
                 if (!div2) {
                     let div = document.createElement('div');
                     div.id = name;
-                    div.textContent = name;
+                    // div.textContent = name;
                     div.className = 'component text';
                     document.body.appendChild(div);
                     elementCache.push(div);
