@@ -57,9 +57,14 @@ namespace nia_overall
     // construction
     void ls_solver::construct_solution()
     {
+        static bool first_into = true;
         for (int i = 0; i < _num_vars; i++)
         {
-            ration_num var_value = (_vars[i].is_nia) ? 0 : -1;
+            ration_num var_value;
+            if (first_into)
+                var_value = (_vars[i].is_nia) ? 0 : -1;
+            else
+                var_value = _solution[i];
             if (!_vars[i].is_nia)
             {
                 if (up_value_vars[i] != 0)
@@ -76,6 +81,7 @@ namespace nia_overall
                 _solution[i] = var_value;
         }
         initialize_lit_datas();
+        first_into = false;
     }
 
     void ls_solver::read_model()

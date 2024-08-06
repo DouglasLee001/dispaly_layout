@@ -219,7 +219,7 @@ namespace nia_overall
         else
         {
             l->delta = (int)transfer_name_to_var(vec[1], false);
-            if (vec[1].find("feasible") != std::string::npos)
+            if (vec[1].find("feasible") != std::string::npos || vec[1].find("soft_var") != std::string::npos)
                 feasible2litidx[vec[1]] = lit_index;
             l->key = 1;
             l->is_nia_lit = false;

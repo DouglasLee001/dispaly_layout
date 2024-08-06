@@ -1,0 +1,9 @@
+const imageurls = {
+
+
+};
+
+const texts = {
+
+
+};
