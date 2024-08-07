@@ -12,6 +12,12 @@
             /* border: 1px solid black; */
         }
 
+        .fixedElement {
+            position: fixed;
+            /* border: 1px solid black; */
+            background-color: white;
+        }
+
         .text {
             white-space: nowrap;
             overflow: hidden;
@@ -70,6 +76,18 @@
                 div.style.fontSize = text[1];
                 document.body.appendChild(div);
             }
+            for (const key in abs_pos) {
+                let div = document.createElement('div');
+                div.id = key;
+                div.className = 'fixedElement';
+                const info = abs_pos[key];
+                if (info.length > 0) {
+                    const img = new Image();
+                    img.src = info[0];
+                    div.appendChild(img);
+                }
+                document.body.appendChild(div);
+            }
             for (const key in bords) {
                 let div = document.createElement('div');
                 div.id = key;
@@ -93,11 +111,12 @@
                     elementCache.push(div2);
                 }
             }
-            updateComponents(window.innerWidth);
+
+            updateComponents(window.innerWidth, window.innerHeight);
         }
 
-        function updateComponents(screenWidth) {
-            const components = moduleInstance.getComponents(screenWidth);
+        function updateComponents(screenWidth, screenHight) {
+            const components = moduleInstance.getComponents(screenWidth, screenHight);
 
             for (let i = 0; i < components.size(); i++) {
                 const component = components.get(i);
@@ -115,7 +134,7 @@
 
         // 添加事件监听器，在屏幕宽度变化时实时更新组件
         window.addEventListener('resize', () => {
-            updateComponents(window.innerWidth);
+            updateComponents(window.innerWidth, window.innerHeight);
         });
     </script>
 </body>

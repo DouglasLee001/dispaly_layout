@@ -74,3 +74,11 @@ const texts = {
 const bords = {
     "search_bar": "1px",
 };
+const abs_pos = {
+    "down_holder": [],
+    "mine": ["images/mine.png"],
+    "home": ["images/home.png"],
+    "shop": ["images/shop.png"],
+    "new": ["images/new.png"],
+    "add": ["images/add.png"],
+};
