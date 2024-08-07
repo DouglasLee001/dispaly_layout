@@ -82,9 +82,15 @@
                 div.className = 'fixedElement';
                 const info = abs_pos[key];
                 if (info.length > 0) {
-                    const img = new Image();
-                    img.src = info[0];
-                    div.appendChild(img);
+                    if (info[0]) {
+                        const img = new Image();
+                        img.src = info[0];
+                        div.appendChild(img);
+                    }
+                    if (info[1]) {
+                        div.className = 'fixedElement text';
+                        div.textContent = info[1];
+                    }
                 }
                 document.body.appendChild(div);
             }

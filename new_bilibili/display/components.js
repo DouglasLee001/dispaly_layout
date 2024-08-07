@@ -75,10 +75,14 @@ const bords = {
     "search_bar": "1px",
 };
 const abs_pos = {
-    "down_holder": [],
+    "down_holder": [,],
     "mine": ["images/mine.png"],
     "home": ["images/home.png"],
     "shop": ["images/shop.png"],
     "new": ["images/new.png"],
     "add": ["images/add.png"],
+    "mine_name": [, "我的"],
+    "home_name": [, "主页"],
+    "shop_name": [, "购物"],
+    "new_name": [, "动态"],
 };
