@@ -6,6 +6,8 @@ std::vector<std::string> soft_c_names = {
 const std::vector<bool> belong_to_right{
 false,
 true,
+false,
+true,
 true,
 true,
 true,
@@ -15,7 +17,9 @@ true,
 };
 const std::vector<double> right_bound{
 4000.0,
-1310.0,
+1410.0,
+1400.0,
+1300.0,
 1040.0,
 880.0,
 810.0,
@@ -25,7 +29,26 @@ const std::vector<double> right_bound{
 };
 const std::vector<std::vector<std::string>> soft_constraints = {
 {
+"bar_feasible",
+"down_tab_vertical_feasible",
+"title_h_feasible",
+"pic_3_feasible",
+"app_flow_long_feasible",
+"game_flow_long_feasible",
+"movie_4_feasible",
+},
+{
+"bar_feasible",
+"down_tab_vertical_feasible",
+"title_h_feasible",
+"pic_3_feasible",
+"app_flow_feasible",
+"game_flow_feasible",
+"movie_4_feasible",
+},
+{
 "empty_feasible",
+"down_tab_long_feasible",
 "title_h_feasible",
 "pic_3_feasible",
 "app_flow_long_feasible",
@@ -34,6 +57,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 },
 {
 "empty_feasible",
+"down_tab_long_feasible",
 "title_h_feasible",
 "pic_3_feasible",
 "app_flow_feasible",
@@ -42,6 +66,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 },
 {
 "empty_feasible",
+"down_tab_long_feasible",
 "title_v_feasible",
 "pic_3_feasible",
 "app_flow_feasible",
@@ -50,6 +75,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 },
 {
 "empty_feasible",
+"down_tab_long_feasible",
 "title_v_feasible",
 "pic_3_feasible",
 "app_flow_feasible",
@@ -58,6 +84,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 },
 {
 "empty_feasible",
+"down_tab_feasible",
 "title_v_feasible",
 "pic_2_feasible",
 "app_flow_feasible",
@@ -66,6 +93,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 },
 {
 "empty_feasible",
+"down_tab_feasible",
 "title_v_feasible",
 "pic_2_feasible",
 "app_flow_feasible",
@@ -74,6 +102,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 },
 {
 "empty_feasible",
+"down_tab_feasible",
 "title_v_feasible",
 "pic_1_feasible",
 "app_flow_feasible",
