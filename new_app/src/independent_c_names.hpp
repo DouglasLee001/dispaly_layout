@@ -13,19 +13,17 @@ true,
 true,
 true,
 true,
-true,
 };
 const std::vector<double> right_bound{
 4000.0,
-1410.0,
+1400.0,
 1400.0,
 1300.0,
-1040.0,
-880.0,
+1080.0,
+980.0,
 810.0,
-660.0,
 550.0,
-440.0,
+540.0,
 };
 const std::vector<std::vector<std::string>> soft_constraints = {
 {
@@ -67,16 +65,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 {
 "empty_feasible",
 "down_tab_long_feasible",
-"title_v_feasible",
-"pic_3_feasible",
-"app_flow_feasible",
-"game_flow_feasible",
-"movie_4_feasible",
-},
-{
-"empty_feasible",
-"down_tab_long_feasible",
-"title_v_feasible",
+"title_h_feasible",
 "pic_3_feasible",
 "app_flow_feasible",
 "game_flow_feasible",
@@ -84,9 +73,9 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 },
 {
 "empty_feasible",
-"down_tab_feasible",
+"down_tab_long_feasible",
 "title_v_feasible",
-"pic_2_feasible",
+"pic_3_feasible",
 "app_flow_feasible",
 "game_flow_feasible",
 "movie_3_feasible",
