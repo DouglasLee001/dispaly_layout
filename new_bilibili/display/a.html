@@ -21,6 +21,24 @@
         /* border: 1px solid black; */
       }
 
+      body > .content {
+        white-space: nowrap;
+        overflow: hidden;
+        /* line-height: 10px; */
+        text-overflow: ellipsis;
+        /* display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2; */
+        background-color: white;
+        border-radius: 10px; 
+      }
+
+      body > .main-body-holder {
+        background-color: whitesmoke;
+        /* color: red; */
+        z-index: -1;
+      }
+
       .fixedElement {
         position: fixed;
         /* border: 1px solid black; */
@@ -30,15 +48,20 @@
       .text {
         white-space: nowrap;
         /* overflow: hidden; */
-        font-size: large;
         display: flex;
         justify-content: center;
         align-items: center;
         /* 垂直居中 */
       }
 
-      .current-tab {
-        color: pink;
+      .current-upper-tab {
+        color: rgb(255, 121, 144);
+        border-bottom: 3px solid rgb(255, 121, 144);
+        /* padding-bottom: 2px; */
+      }
+
+      .current-under-tab {
+        color: rgb(255, 121, 144);
       }
 
       .search-text {
@@ -47,13 +70,14 @@
         font-size: 16px;
         display: flex;
         align-items: center;
+        color: grey;
       }
 
       .search-bar {
-        background-color: grey;
+        /* background-color: grey; */
         opacity: 15%;
         position: absolute;
-        border: 1px soid grey;
+        border: 2px solid rgb(64, 64, 64);
         border-radius: 20px;
       }
 
@@ -111,10 +135,14 @@
           if (key === "search_bar_kid_1") {
             div.className = "component search-text";
           } else if (key === "title_phone_down_kid_1") {
-            div.className = "component text current-tab";
+            div.className = "component text current-upper-tab";
           } else {
             div.className = "component text";
           }
+          if (key.includes("body")) {
+            div.className = "component content"
+          }
+          
           const text = texts[key];
           // div.style.border = "1px solid";
           div.textContent = text[0];
@@ -135,7 +163,7 @@
             if (info[1]) {
               div.className = "fixedElement text";
               if (key === "home_name") {
-                div.classList.add("current-tab");
+                div.classList.add("current-under-tab");
               }
               div.textContent = info[1];
             }
@@ -159,6 +187,9 @@
             div.id = name;
             // div.textContent = name;
             div.className = "component text";
+            if (name === "main_body_holder") {
+              div.classList.add("main-body-holder");
+            }
             document.body.appendChild(div);
             elementCache.push(div);
           } else {
