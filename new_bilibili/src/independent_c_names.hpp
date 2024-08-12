@@ -7,7 +7,7 @@ const std::vector<bool> belong_to_right{
 false,
 true,
 false,
-true,
+false,
 false,
 false,
 false,
@@ -17,7 +17,7 @@ const std::vector<double> right_bound{
 1700.0,
 1600.0,
 970.0,
-800.0,
+790.0,
 730.0,
 450.0,
 };
@@ -43,7 +43,7 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 "main_body_3_feasible",
 },
 {
-"down_tab_long_feasible",
+"down_tab_feasible",
 "title_phone_feasible",
 "main_body_3_feasible",
 },
