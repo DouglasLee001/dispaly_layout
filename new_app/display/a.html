@@ -71,7 +71,9 @@
           div.className = "component text";
           const text = texts[key];
           // div.style.border = "1px solid";
-          div.textContent = text;
+          div.textContent = text[0];
+          // div.textContent = text;
+          div.style.fontSize = text[1];
           document.body.appendChild(div);
         }
         for (const key in abs_pos) {
