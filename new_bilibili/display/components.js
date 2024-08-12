@@ -25,12 +25,22 @@ const imageurls = {
     "images/main_body_2.png",
   ],
 
-  history: "images/history.png",
+  history: "images/comic.png",
   game_icon: "images/game_icon.jpg",
   email_icon: "images/email_icon1.png",
   person: "images/user_icon.jpg",
   search_go: "images/search_icon.webp",
   scan_icon: "images/scan_icon.png",
+
+  "card_person_icon_0":"images/user_icon.jpg",
+  "card_person_icon_1":"images/user_icon.jpg",
+  "card_person_icon_2":"images/user_icon.jpg",
+  "card_person_icon_3":"images/user_icon.jpg",
+
+  "card_search_icon_0":"images/search_icon.webp",
+  "card_search_icon_1":"images/search_icon.webp",
+  "card_search_icon_2":"images/search_icon.webp",
+  "card_search_icon_3":"images/search_icon.webp",
 };
 
 const texts = {

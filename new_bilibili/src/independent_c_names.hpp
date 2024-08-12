@@ -10,6 +10,7 @@ false,
 false,
 false,
 false,
+true,
 false,
 };
 const std::vector<double> right_bound{
@@ -20,6 +21,7 @@ const std::vector<double> right_bound{
 790.0,
 730.0,
 450.0,
+220.0,
 };
 const std::vector<std::vector<std::string>> soft_constraints = {
 {
@@ -51,5 +53,10 @@ const std::vector<std::vector<std::string>> soft_constraints = {
 "down_tab_feasible",
 "title_phone_feasible",
 "main_body_4_feasible",
+},
+{
+"down_tab_feasible",
+"title_phone_feasible",
+"main_body_watch_feasible",
 },
 };
