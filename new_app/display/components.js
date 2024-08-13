@@ -53,8 +53,8 @@ const imageurls = {
 
 const texts = {
 "homepage":["首页","30px"],
-"app_title_kid_1":["更多>","18px"],
-"game_title_kid_1":["更多>","18px"],
+"app_title_kid_1":["更多 >","18px"],
+"game_title_kid_1":["更多 >","18px"],
 "app_title_kid_0":["精品应用","20px"],
 "game_title_kid_0":["精品游戏","20px"],
 "division_name":["分类"],
