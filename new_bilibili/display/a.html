@@ -247,7 +247,7 @@
         for (const key in texts) {
           let div = document.createElement("div");
           div.id = key;
-          if (key === "search_bar_kid_1") {
+          if (key === "search_bar_kid_1" || key == "search_bar_tv_kid_1") {
             div.className = "component search-text";
           } else if (key.includes("kid_1")) {
             div.className = "component text current-upper-tab";

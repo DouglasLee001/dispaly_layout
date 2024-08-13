@@ -45,8 +45,9 @@ const imageurls = {
 
 const texts = {
   search_bar_kid_1: ["Tab / to search", "16px"],
+  search_bar_tv_kid_1: ["Tab / to search", "22px"],
   title_phone_down_kid_0: ["直播", "20px"],
-  title_phone_down_kid_1: ["推荐", "24px"],
+  title_phone_down_kid_1: ["推荐", "20px"],
   title_phone_down_kid_2: ["热门", "20px"],
   title_phone_down_kid_3: ["动画", "20px"],
   title_phone_down_kid_4: ["影视", "20px"],
@@ -100,6 +101,7 @@ const texts = {
 
 const bords = {
   search_bar: "1px",
+  search_bar_tv: "1px",
 };
 const abs_pos = {
   down_holder: [,],
