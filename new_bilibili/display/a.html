@@ -6,7 +6,10 @@
     <script src="ind_cpp.js"></script>
     <script src="components.js"></script>
     <!-- 加载组件定义 -->
-    <link rel="stylesheet" href="https://hmos.dongs.xyz/harmonyos_sans_sc.css" />
+    <link
+      rel="stylesheet"
+      href="https://hmos.dongs.xyz/harmonyos_sans_sc.css"
+    />
     <style>
       body {
         font-family: "HarmonyOS Sans SC", sans-serif;
@@ -61,7 +64,7 @@
         right: 10px;
       }
 
-      body>.content {
+      body > .content {
         white-space: nowrap;
         overflow: hidden;
         /* line-height: 10px; */
@@ -73,7 +76,7 @@
         border-radius: 10px;
       }
 
-      body>.main-body-holder {
+      body > .main-body-holder {
         background-color: whitesmoke;
         /* color: red; */
         z-index: -1;
@@ -143,7 +146,6 @@
   </head>
 
   <body>
-    
     <!-- <div class="carousel">
       <div class="carousel-inner">
       </div>
@@ -177,14 +179,14 @@
         // carouselInner.id = "main_body_pic";
         carousel.appendChild(carouselInner);
 
-        const prevButton = document.createElement('button');
-        prevButton.className = 'carousel-button prev';
-        prevButton.innerHTML = '&#10094';
+        const prevButton = document.createElement("button");
+        prevButton.className = "carousel-button prev";
+        prevButton.innerHTML = "&#10094";
         prevButton.onclick = prevSlide;
 
-        const nextButton = document.createElement('button');
-        nextButton.className = 'carousel-button next';
-        nextButton.innerHTML = '&#10095';
+        const nextButton = document.createElement("button");
+        nextButton.className = "carousel-button next";
+        nextButton.innerHTML = "&#10095";
         nextButton.onclick = nextSlide;
 
         carousel.appendChild(prevButton);
@@ -194,7 +196,7 @@
       }
 
       function renderCarousel(name, images) {
-        const carouselInner = document.querySelector('.carousel-inner');
+        const carouselInner = document.querySelector(".carousel-inner");
         for (const key in images) {
           let div = document.createElement("div");
           div.id = name;
@@ -206,9 +208,8 @@
           carouselInner.appendChild(div);
         }
 
-        totalSlides = document.querySelectorAll('.carousel-item').length;
+        totalSlides = document.querySelectorAll(".carousel-item").length;
       }
-
 
       function initializeComponents(screenWidth) {
         if (!moduleInstance) {
@@ -258,7 +259,7 @@
             div.className = "component text";
           }
           if (key.includes("body")) {
-            div.className = "component content"
+            div.className = "component content";
           }
 
           const text = texts[key];
@@ -280,10 +281,11 @@
             }
             if (info[1]) {
               div.className = "fixedElement text";
-              if (key === "home_name") {
+              if (key == "home_name" || key == "home_name2") {
                 div.classList.add("current-under-tab");
               }
               div.textContent = info[1];
+              div.style.fontSize = info[2];
             }
           }
           document.body.appendChild(div);
@@ -350,8 +352,8 @@
         }
 
         const offset = -idx * 100;
-        const carouselInner = document.querySelector('.carousel-inner');
-        carouselInner.style.transition = 'transform 0.5s ease-in-out';
+        const carouselInner = document.querySelector(".carousel-inner");
+        carouselInner.style.transition = "transform 0.5s ease-in-out";
         carouselInner.style.transform = `translateX(${offset}%)`;
         prevTranslate = currentTranslate = offset; // 更新当前的转换位置
       }
@@ -366,7 +368,7 @@
       function prevSlide() {
         clearInterval(autoSlideInterval);
         currentIdx = (currentIdx - 1 + totalSlides) % totalSlides;
-        showSlide(currentIdx); 
+        showSlide(currentIdx);
         startAutoSlide();
       }
 
@@ -425,7 +427,9 @@
       // }
 
       function getPositionX(event) {
-        return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        return event.type.includes("mouse")
+          ? event.pageX
+          : event.touches[0].clientX;
       }
 
       // 获取初始屏幕宽度并初始化组件

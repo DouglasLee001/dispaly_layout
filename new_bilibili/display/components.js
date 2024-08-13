@@ -32,15 +32,15 @@ const imageurls = {
   search_go: "images/search_icon.webp",
   scan_icon: "images/scan_icon.png",
 
-  "card_person_icon_0":"images/user_icon.jpg",
-  "card_person_icon_1":"images/user_icon.jpg",
-  "card_person_icon_2":"images/user_icon.jpg",
-  "card_person_icon_3":"images/user_icon.jpg",
+  card_person_icon_0: "images/user_icon.jpg",
+  card_person_icon_1: "images/user_icon.jpg",
+  card_person_icon_2: "images/user_icon.jpg",
+  card_person_icon_3: "images/user_icon.jpg",
 
-  "card_search_icon_0":"images/search_icon.webp",
-  "card_search_icon_1":"images/search_icon.webp",
-  "card_search_icon_2":"images/search_icon.webp",
-  "card_search_icon_3":"images/search_icon.webp",
+  card_search_icon_0: "images/search_icon.webp",
+  card_search_icon_1: "images/search_icon.webp",
+  card_search_icon_2: "images/search_icon.webp",
+  card_search_icon_3: "images/search_icon.webp",
 };
 
 const texts = {
@@ -75,7 +75,10 @@ const texts = {
   body_item_2_word: [" 动态视频｜高速摄影机下的巴黎 是什么样的？", "15px"],
   body_item_3_word: ["全能S牌人皇教你遛鬼，角色万花筒！", "15px"],
   body_item_4_word: ["硬控5分钟？影视飓风音效挑战！", "15px"],
-  body_item_5_word: ["华为 MatePad Pro 12.2 评测：华为平板史上最亮屏幕，但键盘才是本体", "15px"],
+  body_item_5_word: [
+    "华为 MatePad Pro 12.2 评测：华为平板史上最亮屏幕，但键盘才是本体",
+    "15px",
+  ],
   body_item_6_word: ["「趣看发布会」余总带着享界S9来干翻BBA了！", "15px"],
   body_item_7_word: ["5分钟看完享界S9发布会，首发华为全栈黑科技", "15px"],
   body_item_8_word: ["2024年8月份华为全场景新品发布会", "15px"],
@@ -85,7 +88,10 @@ const texts = {
   body_item_12_word: ["外企硬件工程师每天天在干嘛？？？", "15px"],
   body_item_13_word: ["全能S牌人皇教你遛鬼，角色万花筒！", "15px"],
   body_item_14_word: ["硬控5分钟？影视飓风音效挑战！", "15px"],
-  body_item_15_word: ["华为 MatePad Pro 12.2 评测：华为平板史上最亮屏幕，但键盘才是本体", "15px"],
+  body_item_15_word: [
+    "华为 MatePad Pro 12.2 评测：华为平板史上最亮屏幕，但键盘才是本体",
+    "15px",
+  ],
   body_item_16_word: ["「趣看发布会」余总带着享界S9来干翻BBA了！", "15px"],
   body_item_17_word: ["5分钟看完享界S9发布会，首发华为全栈黑科技", "15px"],
   body_item_18_word: ["2024年8月份华为全场景新品发布会", "15px"],
@@ -101,9 +107,12 @@ const abs_pos = {
   home: ["images/home_icon.png"],
   new: ["images/shop_icon.png"],
   shop: ["images/fan_icon.png"],
-  add: ["images/add_icon.png"],
   mine_name: [, "我的"],
   home_name: [, "首页"],
   new_name: [, "会员购"],
   shop_name: [, "动态"],
+  mine_name2: [, "我的", "24px"],
+  home_name2: [, "首页", "24px"],
+  new_name2: [, "会员购", "24px"],
+  shop_name2: [, "动态", "24px"],
 };
