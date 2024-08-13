@@ -17,7 +17,7 @@
 
       .component {
         position: absolute;
-        border: 1px solid black;
+        /* border: 1px solid black; */
       }
 
       .fixedElement {
@@ -39,11 +39,7 @@
       img {
         width: 100%;
         height: 100%;
-      }
-
-      .img.search-icon {
-        z-index: 100;
-        background-color: aqua;
+        border-radius: 20px;
       }
 
       .download-button {
@@ -68,7 +64,9 @@
         font-weight: 400;
       }
 
-      .text.search-text {
+      .search-text {
+        display: flex;
+        align-items: center;
         font-size: 16px;
         color: grey;
         z-index: 1;
@@ -76,7 +74,7 @@
 
       .search-bar {
         background-color: white;
-        opacity: 15%;
+        opacity: 90%;
         position: absolute;
         /* border: 2px solid red; */
         border-radius: 20px;
@@ -131,7 +129,8 @@
           } else if (key.includes("name")) {
             div.classList.add("class");
           } else if (key === "search_bar") {
-            div.classList.add("search-text");
+            // div.classList.add("search-text");
+            div.className = "component search-text";
           }
           const text = texts[key];
           // div.style.border = "1px solid";
