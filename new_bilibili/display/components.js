@@ -28,14 +28,14 @@ const imageurls = {
   history: "images/comic.png",
   game_icon: "images/game_icon.jpg",
   email_icon: "images/email_icon1.png",
-  person: "images/user_icon.jpg",
+  person: "images/user_icon.png",
   search_go: "images/search_icon.webp",
   scan_icon: "images/scan_icon.png",
 
-  card_person_icon_0: "images/user_icon.jpg",
-  card_person_icon_1: "images/user_icon.jpg",
-  card_person_icon_2: "images/user_icon.jpg",
-  card_person_icon_3: "images/user_icon.jpg",
+  card_person_icon_0: "images/user_icon.png",
+  card_person_icon_1: "images/user_icon.png",
+  card_person_icon_2: "images/user_icon.png",
+  card_person_icon_3: "images/user_icon.png",
 
   card_search_icon_0: "images/search_icon.webp",
   card_search_icon_1: "images/search_icon.webp",
@@ -44,7 +44,7 @@ const imageurls = {
 };
 
 const texts = {
-  search_bar_kid_1: ["Tab / to search", "16px"],
+  search_bar_kid_1: ["Tab / to search", "18px"],
   title_phone_down_kid_0: ["直播", "20px"],
   title_phone_down_kid_1: ["推荐", "24px"],
   title_phone_down_kid_2: ["热门", "20px"],
