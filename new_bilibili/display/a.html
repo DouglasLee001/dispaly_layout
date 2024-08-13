@@ -65,13 +65,12 @@
       }
 
       body > .content {
-        white-space: nowrap;
         overflow: hidden;
         /* line-height: 10px; */
         text-overflow: ellipsis;
-        /* display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2; */
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
         background-color: white;
         border-radius: 10px;
       }
@@ -142,17 +141,14 @@
         text-align: center;
         line-height: 70px;
       }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
     </style>
   </head>
 
   <body>
-    <!-- <div class="carousel">
-      <div class="carousel-inner">
-      </div>
-      <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
-      <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
-    </div> -->
-
     <script>
       let moduleInstance = null;
       const elementCache = []; // 使用数组来缓存组件元素
@@ -253,7 +249,7 @@
           div.id = key;
           if (key === "search_bar_kid_1") {
             div.className = "component search-text";
-          } else if (key === "title_phone_down_kid_1") {
+          } else if (key.includes("kid_1")) {
             div.className = "component text current-upper-tab";
           } else {
             div.className = "component text";

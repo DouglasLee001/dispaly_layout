@@ -20,7 +20,7 @@ const imageurls = {
   body_item_18_pic: "images/body_8.jpeg",
   body_item_19_pic: "images/body_9.jpeg",
   main_body_pic: [
-    "images/main_body_0.png",
+    "images/main_body_0.jpeg",
     "images/main_body_1.png",
     "images/main_body_2.png",
   ],
