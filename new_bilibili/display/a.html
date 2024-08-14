@@ -162,9 +162,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.4);
         /* background-size: cover; */
-        clip-path: circle(at center);
+        /* clip-path: circle(at center); */
         transition: clip-path 0.5s ease-in-out;
         pointer-events: none;
         z-index: 1000;
@@ -179,52 +179,47 @@
   <body>
     <div id="mask" class="mask hidden"></div>
     <script>
-      const observer = new MutationObserver((mutationsList) => {
-        console.log(!231241);
-        for (let mutation of mutationsList) {
-          if (
-            mutation.type === "attributes" &&
-            mutation.attributeName === "style"
-          ) {
-            const targetDiv = document.getElementById("watch_car_0");
-            // console.log(!231241);
-            if (
-              getComputedStyle(targetDiv).visibility === "visible" ||
-              getComputedStyle(targetDiv).display !== "none"
-            ) {
-              showMask();
-            } else {
-              showMask();
-            }
-          }
-        }
-      });
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const targetDiv = document.getElementById("watch_car_0");
-
-        if (targetDiv) {
-          observer.observe(targetDiv, { attributes: true });
-        } else {
-          console.error("Element with id 'watch_car_0' not found.");
-        }
-      });
-
-      function showMask() {
-        const mask = document.getElementById("mask");
-        mask.classList.remove("hidden");
-      }
-
-      function hideMask() {
-        const mask = document.getElementById("mask");
-        mask.classList.add("hidden");
-      }
-
       let moduleInstance = null;
       const elementCache = []; // 使用数组来缓存组件元素
       let currentIdx = 0;
       let totalSlides = 0;
       let autoSlideInterval;
+
+      /**
+       * mask 相关
+       */
+      function checkVisibility() {
+        const targetDiv = document.getElementById("watch_car_0");
+        if (targetDiv && getComputedStyle(targetDiv).visibility === "visible") {
+          showMask();
+        } else {
+          hideMask();
+        }
+      }
+
+      function showMask() {
+        const mask = document.getElementById("mask");
+        mask.className = "mask";
+        positionMask(mask);
+      }
+
+      function hideMask() {
+        const mask = document.getElementById("mask");
+        mask.style.clipPath = `circle(0px at center)`;
+      }
+
+      function positionMask(mask) {
+        const tab = document.getElementById("title_holder");
+        const tabHeight = parseInt(getComputedStyle(tab).height);
+        const windowWidth = window.innerWidth;
+
+        // 计算mask圆心位置
+        const radius = windowWidth / 2;
+        const centerX = radius;
+        const centerY = tabHeight + radius;
+
+        mask.style.clipPath = `circle(${radius}px at ${centerX}px ${centerY}px)`;
+      }
 
       // 移动/拖动
       // let currentIdx = 0;
@@ -233,6 +228,9 @@
       // let prevTranslate = 0;
       // let isDragging = false;
 
+      /**
+       * 轮播图相关
+       */
       function initializeCarousel() {
         // 创建 carousel 容器
         const carousel = document.createElement("div");
@@ -276,6 +274,9 @@
         totalSlides = document.querySelectorAll(".carousel-item").length;
       }
 
+      /**
+       * 组建元素相关
+       */
       function initializeComponents(screenWidth) {
         if (!moduleInstance) {
           createModule().then((Module) => {
@@ -295,6 +296,12 @@
         const carouselInner = document.createElement("div");
 
         initializeCarousel();
+
+        // 创建mask
+        let mask = document.createElement("div");
+        mask.id = "mask";
+        mask.className = "mask hidden";
+        document.body.appendChild(mask);
 
         for (const key in imageurls) {
           if (key.includes("main")) {
@@ -512,6 +519,7 @@
           window.innerHeight,
           0.5 * window.innerWidth
         );
+        checkVisibility();
       });
     </script>
   </body>
