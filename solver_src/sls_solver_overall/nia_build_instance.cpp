@@ -317,7 +317,8 @@ namespace nia_overall
             }
         }
     }
-    void ls_solver::equal_vars(ration_num _bc_width, ration_num _bc_hight)
+
+    void ls_solver::fix_value(ration_num &_bc_width, ration_num &_bc_hight, ration_num &_radius)
     {
         if (_bc_width != 0)
         {
@@ -335,7 +336,20 @@ namespace nia_overall
             _vars[root_bc_hight_idx].upper_bound = _bc_hight;
             _vars[root_bc_hight_idx].low_bound = _bc_hight;
         }
+        if (_radius != 0)
+        {
+            int radius_idx = (int)transfer_name_to_var("radius", true);
+            int root_radius_idx = find(radius_idx);
+            _radius = (_radius - fa_const[radius_idx]) / fa_coff[radius_idx];
+            preset_values[root_radius_idx] = _radius;
+            _vars[root_radius_idx].upper_bound = _radius;
+            _vars[root_radius_idx].low_bound = _radius;
+        }
+    }
 
+    void ls_solver::equal_vars(ration_num _bc_width, ration_num _bc_hight, ration_num _radius)
+    {
+        fix_value(_bc_width, _bc_hight, _radius);
         bool modified = true;
         while (modified)
         { // if the formula has been modified, it should try to update by equalities again
@@ -655,10 +669,10 @@ namespace nia_overall
         _num_clauses = _clauses.size();
     }
 
-    void ls_solver::build_instance_new_width(int _bc_width, int _bc_hight)
+    void ls_solver::build_instance_new_width(int _bc_width, int _bc_hight, int _radius)
     {
         restore_info_before_build_new_width();
-        equal_vars(_bc_width, _bc_hight);
+        equal_vars(_bc_width, _bc_hight, _radius);
         reduce_clause();
         find_bound();
         reduce_clause();
@@ -1398,8 +1412,8 @@ namespace nia_overall
             if (c.literals.size() != clause_sz)
                 clauses_modified = true;
             c.literals.resize(clause_sz);
-            if(clause_sz==0)
-                build_unsat=true;
+            if (clause_sz == 0)
+                build_unsat = true;
         }
         // delete redundant clauses
         std::vector<std::vector<int>> clause_vec(_num_clauses);

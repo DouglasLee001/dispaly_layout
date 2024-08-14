@@ -313,7 +313,11 @@
           }
         }
 
-        updateComponents(window.innerWidth, window.innerHeight);
+        updateComponents(
+          window.innerWidth,
+          window.innerHeight,
+          0.5 * window.innerWidth
+        );
         // 轮播图相关
         // renderCarousel();
         // setupCarouseDrag();
@@ -321,10 +325,11 @@
         startAutoSlide();
       }
 
-      function updateComponents(screenWidth, screenHight) {
+      function updateComponents(screenWidth, screenHight, radius) {
         const components = moduleInstance.getComponents(
           screenWidth,
-          screenHight
+          screenHight,
+          radius
         );
 
         for (let i = 0; i < components.size(); i++) {
@@ -433,7 +438,11 @@
 
       // 添加事件监听器，在屏幕宽度变化时实时更新组件
       window.addEventListener("resize", () => {
-        updateComponents(window.innerWidth, window.innerHeight);
+        updateComponents(
+          window.innerWidth,
+          window.innerHeight,
+          0.5 * window.innerWidth
+        );
       });
     </script>
   </body>

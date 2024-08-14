@@ -130,7 +130,7 @@ void print_overall_component(int offset_x = 0, int offset_y = 0)
         overall_solver->print_component(c.x, c.y, c.w, c.h, c.v, c_idx);
     }
 }
-void test_solve_cpp(int width, int hight, bool is_print = false)
+void test_solve_cpp(int width, int hight, int radius, bool is_print = false)
 {
 #ifdef DEBUG
     clock_t start_t = clock();
@@ -147,7 +147,7 @@ void test_solve_cpp(int width, int hight, bool is_print = false)
         previous_interval_idx = curr_interval_idx;
         overall_solver->build_instance_original(soft_constraints[curr_interval_idx]);
     }
-    overall_solver->build_instance_new_width(width, hight);
+    overall_solver->build_instance_new_width(width, hight, radius);
     if (overall_solver->local_search())
     {
         if (is_print)
@@ -187,9 +187,9 @@ int main()
     return 0;
 }
 
-std::vector<Component> getComponents(int width, int hight)
+std::vector<Component> getComponents(int width, int hight, int radius)
 {
-    test_solve_cpp(width, hight, true);
+    test_solve_cpp(width, hight, radius, true);
     return components;
 }
 
