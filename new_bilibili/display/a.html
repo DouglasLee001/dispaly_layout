@@ -223,8 +223,11 @@
 
       function positionMask(mask) {
         const tab = document.getElementById("title_holder");
-        const tabHeight = parseInt(getComputedStyle(tab).height);
         const windowWidth = window.innerWidth;
+        const tabPlus = document.getElementById("main_body_watch_kid_0");
+        const tabHeight =
+          parseInt(getComputedStyle(tab).height) +
+          parseInt(getComputedStyle(tabPlus).height);
 
         // 计算mask圆心位置
         const radius = windowWidth / 2;
