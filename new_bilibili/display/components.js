@@ -36,11 +36,15 @@ const imageurls = {
   card_person_icon_1: "images/user_icon.png",
   card_person_icon_2: "images/user_icon.png",
   card_person_icon_3: "images/user_icon.png",
+  card_person_icon_4: "images/user_icon.png",
+  card_person_icon_5: "images/user_icon.png",
 
   card_search_icon_0: "images/search_icon.webp",
   card_search_icon_1: "images/search_icon.webp",
   card_search_icon_2: "images/search_icon.webp",
   card_search_icon_3: "images/search_icon.webp",
+  card_search_icon_4: "images/search_icon.webp",
+  card_search_icon_5: "images/search_icon.webp",
 };
 
 const texts = {
