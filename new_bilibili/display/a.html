@@ -26,7 +26,7 @@
 
       .component {
         position: absolute;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         /* background-color: black; */
       }
 
@@ -40,7 +40,7 @@
         display: flex;
         width: 100%;
         height: 100%;
-        /* transition: transform 0.5s ease-in-out; */
+        transition: transform 0.5s ease-in-out;
         /* touch-action: pan-y; */
       }
 
@@ -161,7 +161,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.8);
+        background: black;
         mask: radial-gradient(circle at 50% 50%, transparent 0px, black 100px);
         -webkit-mask: radial-gradient(
           circle at 50% 50%,
@@ -170,18 +170,8 @@
         );
         pointer-events: none;
         z-index: 1000;
+        /* transition: mask 0.5s ease-in-out, -webkit-mask 0.5s ease-in-out; */
       }
-
-      /* .mask::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: inherit;
-        z-index: -1;
-      } */
 
       .hidden {
         clip-path: circle(0px at 50% 50%);
@@ -426,6 +416,7 @@
         // setupCarouseDrag();
         showSlide(currentIdx);
         startAutoSlide();
+        checkVisibility();
       }
 
       function updateComponents(screenWidth, screenHight, radius) {
@@ -556,13 +547,24 @@
           const distance = window.innerWidth;
 
           const scrollAmount = event.deltaY > 0 ? distance : -distance;
+          // 获取当前滚动位置
+          const currentScroll = window.scrollY;
 
-          // 执行滚动操作
-          window.scrollBy({
-            top: scrollAmount,
-            left: 0,
-            behavior: "smooth",
-          });
+          // 计算目标滚动位置
+          const targetScroll = currentScroll + scrollAmount;
+
+          // 获取页面的最大滚动高度
+          const maxScroll =
+            document.documentElement.scrollHeight - window.innerHeight;
+
+          // 判断是否可以滚动到目标位置
+          if (targetScroll <= maxScroll) {
+            window.scrollBy({
+              top: scrollAmount, // 垂直方向滚动
+              left: 0,
+              behavior: "smooth",
+            });
+          }
         }, 100);
       }
 
