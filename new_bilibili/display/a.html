@@ -202,6 +202,7 @@
       let currentIdx = 0;
       let totalSlides = 0;
       let autoSlideInterval;
+      let debounceTimeout;
 
       /**
        * mask 相关
@@ -545,19 +546,24 @@
       }
 
       function handleScroll(event) {
-        event.preventDefault(); // 阻止默认滚动行为
+        event.preventDefault();
 
-        const distance = window.innerWidth;
+        if (debounceTimeout) {
+          clearTimeout(debounceTimeout);
+        }
 
-        // 根据滚轮的滚动方向来设置滚动量
-        const scrollAmount = event.deltaY > 0 ? distance : -distance;
+        debounceTimeout = setTimeout(() => {
+          const distance = window.innerWidth;
 
-        // 执行滚动操作
-        window.scrollBy({
-          top: scrollAmount, // 垂直方向滚动
-          left: 0,
-          behavior: "smooth", // 平滑滚动
-        });
+          const scrollAmount = event.deltaY > 0 ? distance : -distance;
+
+          // 执行滚动操作
+          window.scrollBy({
+            top: scrollAmount,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 100);
       }
 
       // 获取初始屏幕宽度并初始化组件
