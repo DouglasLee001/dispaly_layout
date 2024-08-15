@@ -75,11 +75,12 @@
 
       body > .content {
         overflow: hidden;
-        /* line-height: 10px; */
+        line-height: 1.5;
+        max-height: calc(1.5em * 2);
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
+        /* -webkit-line-clamp: 2; */
         background-color: white;
         border-radius: 10px;
       }
@@ -565,7 +566,7 @@
               behavior: "smooth",
             });
           }
-        }, 100);
+        }, 300);
       }
 
       // 获取初始屏幕宽度并初始化组件
