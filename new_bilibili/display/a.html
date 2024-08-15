@@ -22,7 +22,6 @@
       body {
         font-family: "HarmonyOS Sans SC", sans-serif;
         overflow-x: hidden;
-        /* background-color: black; */
       }
 
       .component {
@@ -162,16 +161,35 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.4);
-        /* background-size: cover; */
-        /* clip-path: circle(at center); */
-        transition: clip-path 0.5s ease-in-out;
+        background: rgba(0, 0, 0, 0.8);
+        mask: radial-gradient(circle at 50% 50%, transparent 0px, black 100px);
+        -webkit-mask: radial-gradient(
+          circle at 50% 50%,
+          transparent 0px,
+          black 0px
+        );
         pointer-events: none;
         z-index: 1000;
       }
 
+      /* .mask::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: inherit;
+        z-index: -1;
+      } */
+
       .hidden {
         clip-path: circle(0px at 50% 50%);
+        -webkit-mask: radial-gradient(
+          circle at 50% 50%,
+          transparent 0px,
+          black 0px
+        );
       }
     </style>
   </head>
@@ -192,8 +210,10 @@
         const targetDiv = document.getElementById("watch_car_0");
         if (targetDiv && getComputedStyle(targetDiv).visibility === "visible") {
           showMask();
+          enableScrollByDiameter();
         } else {
           hideMask();
+          disableScrollByDiameter();
         }
       }
 
@@ -205,7 +225,8 @@
 
       function hideMask() {
         const mask = document.getElementById("mask");
-        mask.style.clipPath = `circle(0px at center)`;
+        // mask.style.clipPath = `circle(0px at center)`;
+        mask.classList.add("hidden");
       }
 
       function positionMask(mask) {
@@ -218,7 +239,12 @@
         const centerX = radius;
         const centerY = tabHeight + radius;
 
-        mask.style.clipPath = `circle(${radius}px at ${centerX}px ${centerY}px)`;
+        // mask.style.clipPath = `circle(${radius}px at ${centerX}px ${centerY}px)`;
+
+        // 设置遮罩的圆形区域
+        const maskValue = `radial-gradient(circle at ${centerX}px ${centerY}px, transparent ${radius}px, black ${radius}px)`;
+        mask.style.mask = maskValue;
+        mask.style.webkitMask = maskValue;
       }
 
       // 移动/拖动
@@ -507,6 +533,31 @@
         return event.type.includes("mouse")
           ? event.pageX
           : event.touches[0].clientX;
+      }
+
+      // 滚轮整页翻屏效果
+      function enableScrollByDiameter() {
+        window.addEventListener("wheel", handleScroll, { passive: false });
+      }
+
+      function disableScrollByDiameter() {
+        window.removeEventListener("wheel", handleScroll);
+      }
+
+      function handleScroll(event) {
+        event.preventDefault(); // 阻止默认滚动行为
+
+        const distance = window.innerWidth;
+
+        // 根据滚轮的滚动方向来设置滚动量
+        const scrollAmount = event.deltaY > 0 ? distance : -distance;
+
+        // 执行滚动操作
+        window.scrollBy({
+          top: scrollAmount, // 垂直方向滚动
+          left: 0,
+          behavior: "smooth", // 平滑滚动
+        });
       }
 
       // 获取初始屏幕宽度并初始化组件
