@@ -75,8 +75,9 @@
 
       body > .content {
         overflow: hidden;
-        line-height: 1.3;
-        max-height: calc(1.3em * 2);
+        /* line-height: 1; */
+        /* line-height: 1.3;
+        max-height: calc(1.3em * 2); */
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
@@ -560,6 +561,29 @@
         }, 300);
       }
 
+      function adjustLineHeight() {
+        const card = document.getElementById("body_item_1");
+
+        var lineHeight = "21px";
+
+        if (card) {
+          lineHeight =
+            parseInt(getComputedStyle(card).height) * 0.25 * 0.5 + "px";
+
+          lineHeight = lineHeight === "0px" ? "21px" : lineHeight;
+        }
+
+        if (card) {
+          card.style.lineHeight = lineHeight;
+        }
+
+        console.log(card);
+
+        document.querySelectorAll(".content").forEach(function (element) {
+          element.style.lineHeight = lineHeight;
+        });
+      }
+
       // 获取初始屏幕宽度并初始化组件
       initializeComponents(window.innerWidth);
 
@@ -570,8 +594,10 @@
           window.innerHeight,
           radiusRange.value
         );
+        adjustLineHeight();
         checkVisibility();
       });
+
       radiusRange.addEventListener("input", function () {
         updateMask(radiusRange.value);
         updateComponents(
@@ -579,6 +605,7 @@
           window.innerHeight,
           radiusRange.value
         );
+        adjustLineHeight();
       });
     </script>
   </body>
