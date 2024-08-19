@@ -1,6 +1,7 @@
 const imageurls = {
   horizon_up: "images/back.png",
   vertical: "images/back.png",
+  wide_left: "images/back.png",
   person_icon: "images/person.png",
 };
 

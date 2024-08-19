@@ -8,14 +8,21 @@ true,
 true,
 true,
 true,
+true,
 };
 const std::vector<double> right_bound{
 4000.0,
+1070.0,
 840.0,
 690.0,
 470.0,
 };
 const std::vector<std::vector<std::string>> soft_constraints = {
+{
+"wide_feasible",
+"soft_var0",
+"soft_var1",
+},
 {
 "horizon_feasible",
 "soft_var0",
