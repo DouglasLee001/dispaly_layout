@@ -22,7 +22,7 @@ const std::vector<double> right_bound{
 840.0,
 740.0,
 730.0,
-450.0,
+390.0,
 220.0,
 };
 const std::vector<std::vector<std::string>> soft_constraints = {
