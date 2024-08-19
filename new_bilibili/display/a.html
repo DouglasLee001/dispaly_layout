@@ -51,6 +51,7 @@
 
       .carousel-inner img {
         /* border: 1px solid red; */
+        border-radius: 10px;
       }
 
       .carousel-button {
@@ -83,11 +84,11 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         background-color: white;
-        border-radius: 10px;
+        border-radius: 0 0 10px 10px;
       }
 
       body > .main-body-holder {
-        background-color: whitesmoke;
+        background-color: rgb(221, 221, 221);
         /* color: red; */
         z-index: -1;
       }
@@ -136,6 +137,7 @@
       img {
         width: 100%;
         height: 100%;
+        border-radius: 10px 10px 0 0;
       }
 
       .footer {
@@ -440,6 +442,8 @@
             div.className = "component text";
             if (name === "main_body_holder") {
               div.classList.add("main-body-holder");
+            } else if (name.includes("body_item")) {
+              div.classList.add("card");
             }
             document.body.appendChild(div);
             elementCache.push(div);
@@ -475,6 +479,8 @@
           div.style.height = component.h + "px";
           div.style.visibility = component.v ? "visible" : "hidden";
         }
+
+        adjustLineHeight();
       }
 
       function showSlide(idx) {
@@ -562,22 +568,15 @@
       }
 
       function adjustLineHeight() {
-        const card = document.getElementById("body_item_1");
+        const card = document.getElementById("body_item_1_word");
 
         var lineHeight = "21px";
 
         if (card) {
-          lineHeight =
-            parseInt(getComputedStyle(card).height) * 0.25 * 0.5 + "px";
+          lineHeight = parseInt(getComputedStyle(card).height) * 0.5 + "px";
 
           lineHeight = lineHeight === "0px" ? "21px" : lineHeight;
         }
-
-        if (card) {
-          card.style.lineHeight = lineHeight;
-        }
-
-        console.log(card);
 
         document.querySelectorAll(".content").forEach(function (element) {
           element.style.lineHeight = lineHeight;
@@ -594,7 +593,6 @@
           window.innerHeight,
           radiusRange.value
         );
-        adjustLineHeight();
         checkVisibility();
       });
 
@@ -605,7 +603,6 @@
           window.innerHeight,
           radiusRange.value
         );
-        adjustLineHeight();
       });
     </script>
   </body>
