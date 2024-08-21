@@ -189,6 +189,71 @@
         width: 100%;
         margin: 0;
       }
+
+      .nav-button {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        font-size: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s, background-color 0.3s;
+        z-index: 1000;
+      }
+
+      .nav-button:hover {
+        background-color: #0056b3;
+        opacity: 1;
+      }
+
+      .nav-button.left {
+        bottom: 10px;
+        left: 10px;
+      }
+
+      .nav-button.right {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      /* 悬浮时显示提示文字 */
+      .nav-button::after {
+        content: attr(data-hover-text);
+        visibility: hidden;
+        opacity: 0;
+        background-color: black;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 100%;
+        margin-left: 10px;
+        transition: opacity 0.3s;
+        white-space: nowrap;
+      }
+
+      .nav-button.right::after {
+        left: auto;
+        right: 100%;
+        margin-left: 0;
+        margin-right: 10px;
+      }
+
+      .nav-button:hover::after {
+        visibility: visible;
+        opacity: 1;
+      }
     </style>
   </head>
 
@@ -207,7 +272,29 @@
       <input id="radiusRange" type="range" min="0" max="0" value="0" />
       <div id="radiusDisplay" class="radius-display"></div>
     </div>
+    <div class="button-container">
+      <button
+        class="nav-button left"
+        id="button1"
+        data-hover-text="Go to Fields"
+      >
+        &#8592;
+      </button>
+      <button
+        class="nav-button right"
+        id="button2"
+        data-hover-text="Go to HUAWEI APP"
+      >
+        &#8594;
+      </button>
+    </div>
     <script>
+      document.getElementById("button1").onclick = function () {
+        window.location.href = "../../new_fields/display/a.html";
+      };
+      document.getElementById("button2").onclick = function () {
+        window.location.href = "../../new_app/display/a.html";
+      };
       let moduleInstance = null;
       const elementCache = []; // 使用数组来缓存组件元素
       let currentIdx = 0;
