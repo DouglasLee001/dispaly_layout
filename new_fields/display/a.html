@@ -112,7 +112,7 @@
         border-radius: 10px;
       }
 
-      .nav-button {
+      /* .nav-button {
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
@@ -144,10 +144,10 @@
       .nav-button.right {
         bottom: 10px;
         right: 10px;
-      }
+      } */
 
       /* 悬浮时显示提示文字 */
-      .nav-button::after {
+      /* .nav-button::after {
         content: attr(data-hover-text);
         visibility: hidden;
         opacity: 0;
@@ -175,12 +175,12 @@
       .nav-button:hover::after {
         visibility: visible;
         opacity: 1;
-      }
+      } */
     </style>
   </head>
 
   <body>
-    <div class="button-container">
+    <!-- <div class="button-container">
       <button
         class="nav-button left"
         id="button1"
@@ -195,14 +195,14 @@
       >
         &#8594;
       </button>
-    </div>
+    </div> -->
     <script>
-      document.getElementById("button1").onclick = function () {
-        window.location.href = "../../new_app/display/a.html";
-      };
-      document.getElementById("button2").onclick = function () {
-        window.location.href = "../../new_bilibili/display/a.html";
-      };
+      // document.getElementById("button1").onclick = function () {
+      //   window.location.href = "../../new_app/display/a.html";
+      // };
+      // document.getElementById("button2").onclick = function () {
+      //   window.location.href = "../../new_bilibili/display/a.html";
+      // };
 
       let moduleInstance = null;
       const elementCache = []; // 使用数组来缓存组件元素
