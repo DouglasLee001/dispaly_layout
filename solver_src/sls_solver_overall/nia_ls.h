@@ -98,7 +98,6 @@ namespace nia_overall
         std::vector<int> bool_var_vec;
         std::vector<lit> _lits;
         std::vector<int> _lit_make_break; // making a move will make or break the lit itself (1:make, -1:break, 0:no change)
-        std::vector<int> _bound_lits;     // record the index of bounded lits
         std::vector<clause> _clauses;
         std::vector<clause> _reconstruct_stack;
         std::vector<bool> is_in_unsat_clause;

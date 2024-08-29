@@ -791,10 +791,6 @@ namespace nia_overall
                     {
                         _vars[var_idx].upper_bound = new_upper_bound;
                     }
-                    if (l->lits_index != 0)
-                    {
-                        _bound_lits.push_back(l->lits_index);
-                    }
                     l->lits_index = 0;
                     if (l_only_idx < 0)
                     {
