@@ -550,25 +550,52 @@
         checkVisibility();
       }
 
+      function debounce(func, delay) {
+        let debounceTimer;
+        return function () {
+          const context = this;
+          const args = arguments;
+          clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => func.apply(context, args), delay);
+        };
+      }
+
+      function reloadPage() {
+        window.location.reload();
+      }
+
+      const debouncedReload = debounce(reloadPage, 1000);
+
+      let count = 0;
+
       function updateComponents(screenWidth, screenHight, radius) {
-        const components = moduleInstance.getComponents(
-          screenWidth,
-          screenHight,
-          radius
-        );
+        count++;
+        console.log(count);
+        try {
+          const components = moduleInstance.getComponents(
+            screenWidth,
+            screenHight,
+            radius
+          );
 
-        for (let i = 0; i < components.size(); i++) {
-          const component = components.get(i);
-          const div = elementCache[i]; // 从缓存数组获取组件元素
-          div.style.left = component.x + "px";
-          div.style.top = component.y + "px";
-          div.style.width = component.w + "px";
-          div.style.height = component.h + "px";
-          div.style.visibility = component.v ? "visible" : "hidden";
+          for (let i = 0; i < components.size(); i++) {
+            const component = components.get(i);
+            const div = elementCache[i]; // 从缓存数组获取组件元素
+            div.style.left = component.x + "px";
+            div.style.top = component.y + "px";
+            div.style.width = component.w + "px";
+            div.style.height = component.h + "px";
+            div.style.visibility = component.v ? "visible" : "hidden";
+          }
+
+          adjustLineHeight();
+          components.delete();
+        } catch (error) {
+          console.log("ScreenWidth: " + screenWidth);
+          console.log("ScreenHeight: " + screenHight);
+          console.log("Radius: " + radius);
+          debouncedReload();
         }
-
-        adjustLineHeight();
-        components.delete();
       }
 
       function showSlide(idx) {
