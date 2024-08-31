@@ -116,7 +116,7 @@ void gaussianElimination(std::vector<std::vector<ration_num>> &matrix)
     int collom_num = (int)matrix[0].size();
 
     // turn the matrix to upper matrix
-    for (int i = 0; i < row_num; ++i)
+    for (int i = 0; i < row_num && i < collom_num; ++i)
     {
         // find the pivot with min non-zero abs value, if cannot find, means the whole collom is zero
         int minRow = findPivot(matrix, i, i);
