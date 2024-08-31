@@ -266,6 +266,7 @@ namespace nia
         void print_mv();
         void print_full_model();
         void print_components(int offset_x = 0, int offset_y = 0);
+        void print_component(double &x, double &y, double &w, double &h, int &v, int c_idx, int offset_x = 0, int offset_y = 0);
         void print_mv_vars(uint64_t var_idx);
         void print_end();
         void print_var_solution(std::string &var_name, std::string &var_value);

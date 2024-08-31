@@ -106,6 +106,21 @@ namespace nia
             std::cout << " , display: \'block\' },\n";
         }
     }
+    void ls_solver::print_component(double &x, double &y, double &w, double &h, int &v, int c_idx, int offset_x, int offset_y)
+    {
+        if (_solution[components_idx[5 * c_idx + 4]] < 0)
+        {
+            v = 0;
+        }
+        else
+        {
+            v = 1;
+            w = _solution[components_idx[5 * c_idx]].to_double();
+            h = _solution[components_idx[5 * c_idx + 1]].to_double();
+            x = _solution[components_idx[5 * c_idx + 2]].to_double() + offset_x;
+            y = _solution[components_idx[5 * c_idx + 3]].to_double() + offset_y;
+        }
+    }
     void ls_solver::print_full_model()
     {
         std::cout << "var rectangles = [\n";

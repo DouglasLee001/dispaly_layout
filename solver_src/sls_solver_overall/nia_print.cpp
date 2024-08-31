@@ -119,7 +119,7 @@ namespace nia_overall
             w = _solution[components_idx[5 * c_idx]].to_double();
             h = _solution[components_idx[5 * c_idx + 1]].to_double();
             x = _solution[components_idx[5 * c_idx + 2]].to_double() + offset_x;
-            y = _solution[components_idx[5 * c_idx + 3]].to_double() + offset_x;
+            y = _solution[components_idx[5 * c_idx + 3]].to_double() + offset_y;
         }
     }
 
