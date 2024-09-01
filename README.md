@@ -1,6 +1,6 @@
 ## Overview 
-This folder contains 12 benchmarks derived from real-wold layouts, and the customized local search SMT solver called LocalSMT.
-The source code of LocalSMT is located in /solver_src, while other folders contain the benchmakrks.
+This folder contains 12 benchmarks derived from real-world layouts and the solving modulo at the terminal end.
+The source code of LocalSMT is located in /solver_src, while other folders contain the benchmarks.
 
 ## File structure of benchmarks
 Each benchmark contains 3 directories:
@@ -11,8 +11,8 @@ Each benchmark contains 3 directories:
 3. /display: the directory to display the layout, the *a.html* is the main web page, displaying the layout based on the widgets determined by the solving module.
 
 ## Display on Browser
-We have already compiled the solving module in advance. You can directly open the *a.html* in the display folder to view the layout on the Browser.
-Note that, it is recommended to open it with the *Live Server* or *Live Previewer* extrnsion of VSCode, in case of the safety issues caused by Emscripten.
+We have already compiled the solving module. You can directly open the *a.html* in the display folder to view the layout on the Browser.
+Note that, it is recommended to open it with the *Live Server* or *Live Previewer* extension of VSCode, in case of safety issues caused by Emscripten.
 
 ## Build manually
 The solving module can be compiled manually by Emscripten. You have to install the Emscripten first. Please refer to https://emscripten.org/ for detailed instructions.
