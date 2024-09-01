@@ -7,7 +7,7 @@
 #include "../../solver_src/sls_solver/nia_ls.h"
 #include "../../solver_src/sls_solver_overall/nia_ls.h"
 #include <emscripten/bind.h>
-#define DEBUG
+#define NDEBUG
 
 std::vector<int> soft_c_info;
 std::vector<nia::ls_solver *> sls_solvers;
@@ -80,7 +80,7 @@ bool refine_by_sls_solver(bool is_print = false)
         }
         else
         {
-            for (int c_inner_idx = 0; c_inner_idx < sls_solvers[c_inner_idx]->component_names.size() - 1; c_inner_idx++)
+            for (int c_inner_idx = 0; c_inner_idx < sls_solvers[idx]->component_names.size() - 1; c_inner_idx++)
                 components[c_idx++].v = 0;
         }
     }
