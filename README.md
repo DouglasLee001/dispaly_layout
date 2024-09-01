@@ -8,9 +8,7 @@ Each benchmark contains 3 directories:
 
 2. /src: test.cpp (the source of the two-level solving strategy in the solving module), independent_c_names.hpp (the extracted information by preprocessing method)
 
-3. /build: the directory to compile the solving module
-
-4. /display: the directory to display the layout, the *a.html* is the main web page, displaying the layout based on the widgets determined by the solving module.
+3. /display: the directory to display the layout, the *a.html* is the main web page, displaying the layout based on the widgets determined by the solving module.
 
 ## Display on Browser
 We have already compiled the solving module in advance. You can directly open the *a.html* in the display folder to view the layout on the Browser.
