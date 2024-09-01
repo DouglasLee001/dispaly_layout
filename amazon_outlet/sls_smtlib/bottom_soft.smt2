@@ -8,8 +8,8 @@
 6 ( <= ( + bottom_kid_0_x ( * -1.0 bottom_width ) ) -110.0 )
 7 ( <= bottom_kid_0_y 10.0 )
 8 ( >= bottom_kid_0_y 10.0 )
-9 ( <= ( + bottom_kid_0_hight bottom_kid_0_y ( * -1.0 bottom_hight ) ) -10.0 )
-10 ( >= ( + bottom_kid_0_hight bottom_kid_0_y ( * -1.0 bottom_hight ) ) -10.0 )
+9 ( <= ( + bottom_hight ( * -1.0 bottom_kid_0_hight ) ( * -1.0 bottom_kid_0_y ) ) 10.0 )
+10 ( >= ( + bottom_hight ( * -1.0 bottom_kid_0_hight ) ( * -1.0 bottom_kid_0_y ) ) 10.0 )
 11 ( <= bottom_kid_0_width 100.0 )
 12 ( >= bottom_kid_0_width 100.0 )
 13 bottom_kid_0_feasible
