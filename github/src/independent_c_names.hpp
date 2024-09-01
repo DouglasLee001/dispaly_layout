@@ -1,6 +1,11 @@
 #include <vector>
 #include <string>
 std::vector<std::string> soft_c_names = {
+"search_bar_1",
+"side_bar",
+"your_teams",
+"left_homes",
+"right_homes",
 };
 
 const std::vector<bool> belong_to_right{
