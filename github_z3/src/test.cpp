@@ -7,11 +7,12 @@
 #include "../../solver_src/sls_solver/nia_ls.h"
 #include "../../solver_src/sls_solver_overall/nia_ls.h"
 #include <emscripten/bind.h>
-#define DEBUG
+#define NDEBUG
 
 std::vector<int> soft_c_info;
 std::vector<nia::ls_solver *> sls_solvers;
 nia_overall::ls_solver *overall_solver;
+int c_idx = 0;
 struct Component
 {
     double x;
@@ -28,10 +29,12 @@ void add_sls_solvers_independent()
     for (const auto &soft_c_name : soft_c_names)
     {
         nia::ls_solver *m_ls = new nia::ls_solver(0, 10000, 5, true);
-        std::string s = "../sls_smtlib/" + soft_c_name + "_soft.smt2";
+        std::string s = "/sls_smtlib/" + soft_c_name + "_soft.smt2";
         m_ls->read_from_file(s);
         sls_solvers.emplace_back(m_ls);
+        c_names.insert(c_names.end(), m_ls->component_names.begin(), m_ls->component_names.end() - 1);
     }
+    components.resize(c_names.size());
 }
 
 void add_sls_solvers_overall()
@@ -47,7 +50,13 @@ bool sls_solve_component(nia::ls_solver *sls_solver, int w, int h, int x, int y,
     if (sls_solver->update_width_hight(w, h) && sls_solver->local_search())
     {
         if (is_print)
-            sls_solver->print_components(x, y);
+        {
+            for (int c_inner_idx = 0; c_inner_idx < sls_solver->component_names.size() - 1; c_inner_idx++)
+            {
+                Component &c = components[c_idx++];
+                sls_solver->print_component(c.x, c.y, c.w, c.h, c.v, c_inner_idx, x, y);
+            }
+        }
         return true;
     }
     return false;
@@ -68,6 +77,11 @@ bool refine_by_sls_solver(bool is_print = false)
             int y = soft_c_info[5 * idx + 3];
             if (!sls_solve_component(sls_solvers[idx], w, h, x, y, is_print))
                 return false;
+        }
+        else
+        {
+            for (int c_inner_idx = 0; c_inner_idx < sls_solvers[idx]->component_names.size() - 1; c_inner_idx++)
+                components[c_idx++].v = 0;
         }
     }
 #ifdef DEBUG
@@ -124,7 +138,7 @@ clock_t total_time = 0;
 
 void print_overall_component(int offset_x = 0, int offset_y = 0)
 {
-    for (int c_idx = 0; c_idx < overall_solver->component_names.size(); c_idx++)
+    for (c_idx = 0; c_idx < overall_solver->component_names.size(); c_idx++)
     {
         Component &c = components[c_idx];
         overall_solver->print_component(c.x, c.y, c.w, c.h, c.v, c_idx);
@@ -154,8 +168,8 @@ void test_solve_cpp(int width, bool is_print = false)
             print_overall_component();
         else
             std::cout << "sat\n";
-            // overall_solver->record_soft_var_solution(soft_c_info);
-            // refine_by_sls_solver(is_print);
+        overall_solver->record_soft_var_solution(soft_c_info);
+        refine_by_sls_solver(is_print);
 #ifdef DEBUG
 #endif
     }
@@ -165,8 +179,8 @@ void test_solve_cpp(int width, bool is_print = false)
 
 int main()
 {
-    add_sls_solvers_independent();
     add_sls_solvers_overall();
+    add_sls_solvers_independent();
     // clock_t start = clock();
     // for (int width = 400; width < 2400; width++)
     //     test_solve_cpp(width);

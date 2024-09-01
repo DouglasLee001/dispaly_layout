@@ -1,6 +1,24 @@
 #include <vector>
 #include <string>
 std::vector<std::string> soft_c_names = {
+"title",
+"wide_main_title",
+"title_icons",
+"release",
+"package",
+"main_left_readme",
+"main_left_body_kid_0",
+"main_left_body_kid_1",
+"main_left_body_kid_2",
+"main_left_body_kid_3",
+"main_left_body_kid_4",
+"main_left_body_kid_5",
+"main_left_body_kid_6",
+"main_left_body_kid_7",
+"main_left_body_kid_8",
+"main_left_body_kid_9",
+"branch_2",
+"go_to_file_1",
 };
 
 const std::vector<bool> belong_to_right{
