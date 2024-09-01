@@ -1,4 +1,4 @@
-26
+27
 0 true
 1 ( >= basic_right_pic_kid_0_width 0.0 )
 2 ( >= basic_right_pic_kid_0_hight 0.0 )
@@ -16,17 +16,18 @@
 14 ( >= basic_right_pic_kid_1_y 0.0 )
 15 ( <= ( + basic_right_pic_hight ( * -1.0 basic_right_pic_kid_0_y ) ( * -1.0 basic_right_pic_kid_0_hight ) ) 0.0 )
 16 ( >= ( + basic_right_pic_hight ( * -1.0 basic_right_pic_kid_0_y ) ( * -1.0 basic_right_pic_kid_0_hight ) ) 0.0 )
-17 ( <= ( + basic_right_pic_kid_1_hight ( * -1.0 basic_right_pic_hight ) basic_right_pic_kid_1_y ) 0.0 )
-18 ( >= ( + basic_right_pic_kid_1_hight ( * -1.0 basic_right_pic_hight ) basic_right_pic_kid_1_y ) 0.0 )
+17 ( <= ( + basic_right_pic_kid_1_y basic_right_pic_kid_1_hight ( * -1.0 basic_right_pic_hight ) ) 0.0 )
+18 ( >= ( + basic_right_pic_kid_1_y basic_right_pic_kid_1_hight ( * -1.0 basic_right_pic_hight ) ) 0.0 )
 19 ( <= ( + basic_right_pic_kid_0_width ( * -1.0 basic_right_pic_kid_1_x ) basic_right_pic_kid_0_x ) 0.0 )
 20 ( >= ( + basic_right_pic_kid_0_width ( * -1.0 basic_right_pic_kid_1_x ) basic_right_pic_kid_0_x ) 0.0 )
-21 ( <= ( + basic_right_pic_kid_1_width ( * -1.0 basic_right_pic_kid_0_width ) ) 0.0 )
-22 ( >= ( + basic_right_pic_kid_1_width ( * -1.0 basic_right_pic_kid_0_width ) ) 0.0 )
-23 basic_right_pic_kid_0_feasible
-24 basic_right_pic_kid_1_feasible
-25 basic_right_pic_feasible
+21 ( <= ( + basic_right_pic_kid_0_width ( * -1.0 basic_right_pic_kid_1_width ) ) 0.0 )
+22 ( >= ( + basic_right_pic_kid_0_width ( * -1.0 basic_right_pic_kid_1_width ) ) 0.0 )
+23 ( >= basic_right_pic_kid_0_width 500.0 )
+24 basic_right_pic_kid_0_feasible
+25 basic_right_pic_kid_1_feasible
+26 basic_right_pic_feasible
 0
-25
+26
 ( 1 )
 ( 2 )
 ( 3 )
@@ -52,4 +53,5 @@
 ( 23 )
 ( 24 )
 ( 25 )
+( 26 )
 sat

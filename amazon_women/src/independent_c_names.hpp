@@ -1,6 +1,12 @@
 #include <vector>
 #include <string>
 std::vector<std::string> soft_c_names = {
+"title_bg",
+"back_top",
+"spring_edit",
+"spring_edit_thin",
+"basic_right_bottom",
+"basic_right_pic",
 };
 
 const std::vector<bool> belong_to_right{

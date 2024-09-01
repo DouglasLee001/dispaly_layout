@@ -2,10 +2,10 @@
 0 true
 1 ( >= back_top_kid_0_x 0.0 )
 2 ( >= back_top_kid_0_hight 0.0 )
-3 ( <= ( + ( * 2.0 back_top_kid_0_x ) ( * -1.0 back_top_width ) ) -100.0 )
-4 ( >= ( + ( * 2.0 back_top_kid_0_x ) ( * -1.0 back_top_width ) ) -100.0 )
+3 ( <= ( + back_top_width ( * -2.0 back_top_kid_0_x ) ) 100.0 )
+4 ( >= ( + back_top_width ( * -2.0 back_top_kid_0_x ) ) 100.0 )
 5 ( >= back_top_kid_0_x 10.0 )
-6 ( <= ( + back_top_kid_0_x ( * -1.0 back_top_width ) ) -110.0 )
+6 ( >= ( + back_top_width ( * -1.0 back_top_kid_0_x ) ) 110.0 )
 7 ( <= back_top_kid_0_y 10.0 )
 8 ( >= back_top_kid_0_y 10.0 )
 9 ( <= ( + back_top_kid_0_y ( * -1.0 back_top_hight ) back_top_kid_0_hight ) -10.0 )
