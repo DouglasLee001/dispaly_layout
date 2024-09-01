@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 std::vector<std::string> soft_c_names = {
+"title_tv_center",
 };
 
 const std::vector<bool> belong_to_right{
