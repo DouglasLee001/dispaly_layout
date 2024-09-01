@@ -1,6 +1,38 @@
 #include <vector>
 #include <string>
 std::vector<std::string> soft_c_names = {
+"app_title",
+"game_title",
+"movie_title",
+"search",
+"app_0",
+"app_1",
+"app_2",
+"app_3",
+"app_4",
+"app_5",
+"app_6",
+"app_7",
+"app_8",
+"app_9",
+"app_10",
+"app_11",
+"app_12",
+"app_13",
+"game_0",
+"game_1",
+"game_2",
+"game_3",
+"game_4",
+"game_5",
+"game_6",
+"game_7",
+"game_8",
+"game_9",
+"game_10",
+"game_11",
+"game_12",
+"game_13",
 };
 
 const std::vector<bool> belong_to_right{
