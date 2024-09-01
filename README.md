@@ -1,5 +1,5 @@
 ## Overview 
-This folder contains 12 benchmarks derived from real-world layouts and the solving modulo at the terminal end.
+This folder includes 12 benchmarks based on real-world layouts, along with the solving module that utilizes LocalSMT as the backend solver at the terminal end.
 The source code of LocalSMT is located in /solver_src, while other folders contain the benchmarks.
 
 ## File structure of benchmarks
@@ -22,4 +22,4 @@ cd amazon
 chmod a+x ./build.sh
 ./build.sh
 ```
-The *a.html* in display directory is the corresponding layout.
+The *a.html* in the /display directory is the corresponding layout.
